@@ -32,23 +32,17 @@
                 <!-- Menu: Sub menu ul -->
                 <ul class="sub-menu collapse" id="project-Components">
                     <li><a class="ms-link" href="jobs"><span>All Jobs</span></a></li>
-                    <li><a class="ms-link" href="new-job"><span>Create New Job</span></a></li>
+                    <!-- <li><a class="ms-link" href="new-job"><span>Create New Job</span></a></li> -->
                 </ul>
             </li>
 
-            <li class="collapsed">
-                <a class="m-link" data-bs-toggle="collapse" data-bs-target="#tikit-Components" href="#"><i class="icofont-ticket"></i> <span>My Courses</span> <span class="arrow icofont-dotted-down ms-auto text-end fs-5"></span></a>
-                <!-- Menu: Sub menu ul -->
-                <ul class="sub-menu collapse" id="tikit-Components">
-                    <li><a class="ms-link" href="courses"> <span>All Courses</span></a></li>
-                </ul>
-            </li>
+           
             <li class="collapsed">
                 <a class="m-link" data-bs-toggle="collapse" data-bs-target="#client-Components" href="#"><i class="icofont-user-male"></i> <span>Active Job Data</span> <span class="arrow icofont-dotted-down ms-auto text-end fs-5"></span></a>
                 <!-- Menu: Sub menu ul -->
                 <ul class="sub-menu collapse" id="client-Components">
-                    <li><a class="ms-link" href="job"> <span>Job Data</span></a></li>
-                    <li><a class="ms-link" href="download"> <span>Download</span></a></li>
+                    <li><a class="ms-link" href="job_summary"> <span>Summary</span></a></li>
+                    <li><a class="ms-link" href="job_data"> <span>Data Visualisation</span></a></li>
                 </ul>
             </li>
 
@@ -57,7 +51,7 @@
                 <!-- Menu: Sub menu ul -->
                 <ul class="sub-menu collapse" id="menu-Componentsone">
                     <li><a class="ms-link" href="machine-info"><span>Info</span> </a></li>
-                    <li><a class="ms-link" href="machine-settings"><span>Settings</span> </a></li>
+                    <!-- <li><a class="ms-link" href="machine-settings"><span>Settings</span> </a></li> -->
                 </ul>
             </li>
         </ul>

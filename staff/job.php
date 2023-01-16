@@ -4,14 +4,9 @@
 
 <!-- Mirrored from www.pixelwibes.com/template/my-task/html/dist/projects.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 12 Jan 2023 10:03:19 GMT -->
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>:: My-Task:: Projects </title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon"> <!-- Favicon-->
-    
-    <!-- project css file  -->
-    <link rel="stylesheet" href="assets/css/my-task.style.min.css">
+<?php require_once('includes/head.php') ?>   
+
+    <title>:: My-Task:: All Jobs </title>
 </head>
 <body>
 

@@ -2,16 +2,11 @@
 <html class="no-js" lang="en" dir="ltr">
 
 
-<!-- Mirrored from www.pixelwibes.com/template/my-task/html/dist/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 12 Jan 2023 10:02:25 GMT -->
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <?php require_once('includes/head.php') ?>
+
     <title>:: Attendance-Task:: Employee Dashboard </title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon"> <!-- Favicon-->
-    <!-- project css file  -->
-    <link rel="stylesheet" href="assets/css/my-task.style.min.css">
 </head>
 
 <body>
@@ -19,12 +14,12 @@
     <div id="mytask-layout" class="theme-indigo">
         <!-- include sidebar -->
         <?php require_once('includes/sidebar.php') ?>
-      
+
         <!-- main body area -->
         <div class="main px-lg-4 px-md-4">
 
             <!-- Body: Header -->
-         <?php require_once('includes/header.php') ?>
+            <?php require_once('includes/header.php') ?>
 
             <!-- Body: Body -->
             <div class="body d-flex py-3">
@@ -34,8 +29,7 @@
                             <div class="row g-3">
                                 <div class="col-md-12">
                                     <div class="card">
-                                        <div
-                                            class="card-header py-3 d-flex justify-content-between bg-transparent border-bottom-0">
+                                        <div class="card-header py-3 d-flex justify-content-between bg-transparent border-bottom-0">
                                             <h6 class="mb-0 fw-bold ">Students Info</h6>
                                         </div>
                                         <div class="card-body">
@@ -45,8 +39,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="card">
-                                        <div
-                                            class="card-header py-3 d-flex justify-content-between bg-transparent border-bottom-0">
+                                        <div class="card-header py-3 d-flex justify-content-between bg-transparent border-bottom-0">
                                             <h6 class="mb-0 fw-bold ">Student Availability</h6>
                                         </div>
                                         <div class="card-body">
@@ -93,8 +86,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="card">
-                                        <div
-                                            class="card-header py-3 d-flex justify-content-between bg-transparent border-bottom-0">
+                                        <div class="card-header py-3 d-flex justify-content-between bg-transparent border-bottom-0">
                                             <h6 class="mb-0 fw-bold ">Total Students</h6>
                                             <h4 class="mb-0 fw-bold ">423</h4>
                                         </div>
@@ -105,8 +97,7 @@
                                 </div>
                                 <div class="col-md-12">
                                     <div class="card">
-                                        <div
-                                            class="card-header py-3 d-flex justify-content-between bg-transparent border-bottom-0">
+                                        <div class="card-header py-3 d-flex justify-content-between bg-transparent border-bottom-0">
                                             <h6 class="mb-0 fw-bold ">Top Scanned Sources</h6>
                                         </div>
                                         <div class="card-body">
@@ -122,15 +113,12 @@
                                     <div class="card bg-primary">
                                         <div class="card-body row">
                                             <div class="col">
-                                                <span
-                                                    class="avatar lg bg-white rounded-circle text-center d-flex align-items-center justify-content-center"><i
-                                                        class="icofont-file-text fs-5"></i></span>
+                                                <span class="avatar lg bg-white rounded-circle text-center d-flex align-items-center justify-content-center"><i class="icofont-file-text fs-5"></i></span>
                                                 <h1 class="mt-3 mb-0 fw-bold text-white">1546</h1>
                                                 <span class="text-white">Scans</span>
                                             </div>
                                             <div class="col">
-                                                <img class="img-fluid" src="assets/images/interview.svg"
-                                                    alt="interview">
+                                                <img class="img-fluid" src="assets/images/interview.svg" alt="interview">
                                             </div>
                                         </div>
                                     </div>
@@ -139,9 +127,7 @@
                                     <div class="card mb-3">
                                         <div class="card-body">
                                             <div class="d-flex align-items-center flex-fill">
-                                                <span
-                                                    class="avatar lg light-success-bg rounded-circle text-center d-flex align-items-center justify-content-center"><i
-                                                        class="icofont-users-alt-2 fs-5"></i></span>
+                                                <span class="avatar lg light-success-bg rounded-circle text-center d-flex align-items-center justify-content-center"><i class="icofont-users-alt-2 fs-5"></i></span>
                                                 <div class="d-flex flex-column ps-3  flex-fill">
                                                     <h6 class="fw-bold mb-0 fs-4">1115</h6>
                                                     <span class="text-muted">Valid Responses</span>
@@ -153,9 +139,7 @@
                                     <div class="card">
                                         <div class="card-body">
                                             <div class="d-flex align-items-center flex-fill">
-                                                <span
-                                                    class="avatar lg light-danger-bg rounded-circle text-center d-flex align-items-center justify-content-center"><i
-                                                        class="icofont-holding-hands fs-5"></i></span>
+                                                <span class="avatar lg light-danger-bg rounded-circle text-center d-flex align-items-center justify-content-center"><i class="icofont-holding-hands fs-5"></i></span>
                                                 <div class="d-flex flex-column ps-3 flex-fill">
                                                     <h6 class="fw-bold mb-0 fs-4">430</h6>
                                                     <span class="text-muted">Negative Responses</span>
@@ -167,16 +151,14 @@
                                 </div>
                                 <div class="col-md-12 col-lg-12 col-xl-12">
                                     <div class="card">
-                                        <div
-                                            class="card-header py-3 d-flex justify-content-between bg-transparent border-bottom-0">
+                                        <div class="card-header py-3 d-flex justify-content-between bg-transparent border-bottom-0">
                                             <h6 class="mb-0 fw-bold ">Recently Scanned Students</h6>
                                         </div>
                                         <div class="card-body">
                                             <div class="flex-grow-1">
                                                 <div class="py-2 d-flex align-items-center border-bottom flex-wrap">
                                                     <div class="d-flex align-items-center flex-fill">
-                                                        <img class="avatar lg rounded-circle img-thumbnail"
-                                                            src="assets/images/lg/avatar2.jpg" alt="profile">
+                                                        <img class="avatar lg rounded-circle img-thumbnail" src="assets/images/lg/avatar2.jpg" alt="profile">
                                                         <div class="d-flex flex-column ps-3">
                                                             <h6 class="fw-bold mb-0 small-14">Natalie Gibson</h6>
                                                             <span class="text-muted">2017/2018</span>
@@ -188,8 +170,7 @@
                                                 </div>
                                                 <div class="py-2 d-flex align-items-center border-bottom flex-wrap">
                                                     <div class="d-flex align-items-center flex-fill">
-                                                        <img class="avatar lg rounded-circle img-thumbnail"
-                                                            src="assets/images/lg/avatar9.jpg" alt="profile">
+                                                        <img class="avatar lg rounded-circle img-thumbnail" src="assets/images/lg/avatar9.jpg" alt="profile">
                                                         <div class="d-flex flex-column ps-3">
                                                             <h6 class="fw-bold mb-0 small-14">Peter Piperg</h6>
                                                             <span class="text-muted">2017/2018</span>
@@ -201,8 +182,7 @@
                                                 </div>
                                                 <div class="py-2 d-flex align-items-center border-bottom flex-wrap">
                                                     <div class="d-flex align-items-center flex-fill">
-                                                        <img class="avatar lg rounded-circle img-thumbnail"
-                                                            src="assets/images/lg/avatar12.jpg" alt="profile">
+                                                        <img class="avatar lg rounded-circle img-thumbnail" src="assets/images/lg/avatar12.jpg" alt="profile">
                                                         <div class="d-flex flex-column ps-3">
                                                             <h6 class="fw-bold mb-0 small-14">Robert Young</h6>
                                                             <span class="text-muted">PHP Developer</span>
@@ -214,8 +194,7 @@
                                                 </div>
                                                 <div class="py-2 d-flex align-items-center border-bottom flex-wrap">
                                                     <div class="d-flex align-items-center flex-fill">
-                                                        <img class="avatar lg rounded-circle img-thumbnail"
-                                                            src="assets/images/lg/avatar8.jpg" alt="profile">
+                                                        <img class="avatar lg rounded-circle img-thumbnail" src="assets/images/lg/avatar8.jpg" alt="profile">
                                                         <div class="d-flex flex-column ps-3">
                                                             <h6 class="fw-bold mb-0 small-14">Victoria Vbell</h6>
                                                             <span class="text-muted">IOS Developer</span>
@@ -227,8 +206,7 @@
                                                 </div>
                                                 <div class="py-2 d-flex align-items-center border-bottom flex-wrap">
                                                     <div class="d-flex align-items-center flex-fill">
-                                                        <img class="avatar lg rounded-circle img-thumbnail"
-                                                            src="assets/images/lg/avatar7.jpg" alt="profile">
+                                                        <img class="avatar lg rounded-circle img-thumbnail" src="assets/images/lg/avatar7.jpg" alt="profile">
                                                         <div class="d-flex flex-column ps-3">
                                                             <h6 class="fw-bold mb-0 small-14">Mary Butler</h6>
                                                             <span class="text-muted">Writer</span>
@@ -240,8 +218,7 @@
                                                 </div>
                                                 <div class="py-2 d-flex align-items-center border-bottom flex-wrap">
                                                     <div class="d-flex align-items-center flex-fill">
-                                                        <img class="avatar lg rounded-circle img-thumbnail"
-                                                            src="assets/images/lg/avatar3.jpg" alt="profile">
+                                                        <img class="avatar lg rounded-circle img-thumbnail" src="assets/images/lg/avatar3.jpg" alt="profile">
                                                         <div class="d-flex flex-column ps-3">
                                                             <h6 class="fw-bold mb-0 small-14">Youn Bel</h6>
                                                             <span class="text-muted">Unity 3d</span>
@@ -253,8 +230,7 @@
                                                 </div>
                                                 <div class="py-2 d-flex align-items-center  flex-wrap">
                                                     <div class="d-flex align-items-center flex-fill">
-                                                        <img class="avatar lg rounded-circle img-thumbnail"
-                                                            src="assets/images/lg/avatar2.jpg" alt="profile">
+                                                        <img class="avatar lg rounded-circle img-thumbnail" src="assets/images/lg/avatar2.jpg" alt="profile">
                                                         <div class="d-flex flex-column ps-3">
                                                             <h6 class="fw-bold mb-0 small-14">Gibson Butler</h6>
                                                             <span class="text-muted">Networking</span>
@@ -272,8 +248,7 @@
                         </div>
                         <div class="col-md-12">
                             <div class="card light-danger-bg">
-                                <div
-                                    class="card-header py-3 d-flex justify-content-between bg-transparent border-bottom-0">
+                                <div class="card-header py-3 d-flex justify-content-between bg-transparent border-bottom-0">
                                     <h6 class="mb-0 fw-bold ">Top Perfrormers</h6>
                                 </div>
                                 <div class="card-body">
@@ -293,14 +268,11 @@
                                             </div>
                                         </div>
                                         <div class="col-md-12 col-lg-12 col-xl-12 col-xxl-10">
-                                            <div
-                                                class="row g-3 row-cols-2 row-cols-sm-3 row-cols-md-3 row-cols-lg-3 row-cols-xl-3 row-cols-xxl-6 row-deck top-perfomer">
+                                            <div class="row g-3 row-cols-2 row-cols-sm-3 row-cols-md-3 row-cols-lg-3 row-cols-xl-3 row-cols-xxl-6 row-deck top-perfomer">
                                                 <div class="col">
                                                     <div class="card shadow">
-                                                        <div
-                                                            class="card-body text-center d-flex flex-column justify-content-center">
-                                                            <img class="avatar lg rounded-circle img-thumbnail mx-auto"
-                                                                src="assets/images/lg/avatar2.jpg" alt="profile">
+                                                        <div class="card-body text-center d-flex flex-column justify-content-center">
+                                                            <img class="avatar lg rounded-circle img-thumbnail mx-auto" src="assets/images/lg/avatar2.jpg" alt="profile">
                                                             <h6 class="fw-bold my-2 small-14">Luke Short</h6>
                                                             <span class="text-muted mb-2">@Short</span>
                                                             <h4 class="fw-bold text-primary fs-3">80%</h4>
@@ -309,10 +281,8 @@
                                                 </div>
                                                 <div class="col">
                                                     <div class="card shadow">
-                                                        <div
-                                                            class="card-body text-center d-flex flex-column justify-content-center">
-                                                            <img class="avatar lg rounded-circle img-thumbnail mx-auto"
-                                                                src="assets/images/lg/avatar5.jpg" alt="profile">
+                                                        <div class="card-body text-center d-flex flex-column justify-content-center">
+                                                            <img class="avatar lg rounded-circle img-thumbnail mx-auto" src="assets/images/lg/avatar5.jpg" alt="profile">
                                                             <h6 class="fw-bold my-2 small-14">John Hard</h6>
                                                             <span class="text-muted mb-2">@rdacre</span>
                                                             <h4 class="fw-bold text-primary fs-3">70%</h4>
@@ -321,10 +291,8 @@
                                                 </div>
                                                 <div class="col">
                                                     <div class="card shadow">
-                                                        <div
-                                                            class="card-body text-center d-flex flex-column justify-content-center">
-                                                            <img class="avatar lg rounded-circle img-thumbnail mx-auto"
-                                                                src="assets/images/lg/avatar8.jpg" alt="profile">
+                                                        <div class="card-body text-center d-flex flex-column justify-content-center">
+                                                            <img class="avatar lg rounded-circle img-thumbnail mx-auto" src="assets/images/lg/avatar8.jpg" alt="profile">
                                                             <h6 class="fw-bold my-2 small-14">Paul Rees</h6>
                                                             <span class="text-muted mb-2">@Rees</span>
                                                             <h4 class="fw-bold text-primary fs-3">77%</h4>
@@ -333,10 +301,8 @@
                                                 </div>
                                                 <div class="col">
                                                     <div class="card shadow">
-                                                        <div
-                                                            class="card-body text-center d-flex flex-column justify-content-center">
-                                                            <img class="avatar lg rounded-circle img-thumbnail mx-auto"
-                                                                src="assets/images/lg/avatar9.jpg" alt="profile">
+                                                        <div class="card-body text-center d-flex flex-column justify-content-center">
+                                                            <img class="avatar lg rounded-circle img-thumbnail mx-auto" src="assets/images/lg/avatar9.jpg" alt="profile">
                                                             <h6 class="fw-bold my-2 small-14">Rachel Parr</h6>
                                                             <span class="text-muted mb-2">@Parr</span>
                                                             <h4 class="fw-bold text-primary fs-3">85%</h4>
@@ -345,10 +311,8 @@
                                                 </div>
                                                 <div class="col">
                                                     <div class="card shadow">
-                                                        <div
-                                                            class="card-body text-center d-flex flex-column justify-content-center">
-                                                            <img class="avatar lg rounded-circle img-thumbnail mx-auto"
-                                                                src="assets/images/lg/avatar12.jpg" alt="profile">
+                                                        <div class="card-body text-center d-flex flex-column justify-content-center">
+                                                            <img class="avatar lg rounded-circle img-thumbnail mx-auto" src="assets/images/lg/avatar12.jpg" alt="profile">
                                                             <h6 class="fw-bold my-2 small-14">Eric Reid</h6>
                                                             <span class="text-muted mb-2">@Eric</span>
                                                             <h4 class="fw-bold text-primary fs-3">95%</h4>
@@ -357,10 +321,8 @@
                                                 </div>
                                                 <div class="col">
                                                     <div class="card shadow">
-                                                        <div
-                                                            class="card-body text-center d-flex flex-column justify-content-center">
-                                                            <img class="avatar lg rounded-circle img-thumbnail mx-auto"
-                                                                src="assets/images/lg/avatar3.jpg" alt="profile">
+                                                        <div class="card-body text-center d-flex flex-column justify-content-center">
+                                                            <img class="avatar lg rounded-circle img-thumbnail mx-auto" src="assets/images/lg/avatar3.jpg" alt="profile">
                                                             <h6 class="fw-bold my-2 small-14">Jan Ince</h6>
                                                             <span class="text-muted mb-2">@Ince</span>
                                                             <h4 class="fw-bold text-primary fs-3">97%</h4>
@@ -388,8 +350,7 @@
                         <div class="modal-body">
                             <div class="inviteby_email">
                                 <div class="input-group mb-3">
-                                    <input type="email" class="form-control" placeholder="Email address"
-                                        id="exampleInputEmail1" aria-describedby="exampleInputEmail1">
+                                    <input type="email" class="form-control" placeholder="Email address" id="exampleInputEmail1" aria-describedby="exampleInputEmail1">
                                     <button class="btn btn-dark" type="button" id="button-addon2">Sent</button>
                                 </div>
                             </div>
@@ -397,11 +358,9 @@
                                 <h6 class="fw-bold ">Employee </h6>
                                 <ul class="list-unstyled list-group list-group-custom list-group-flush mb-0">
                                     <li class="list-group-item py-3 text-center text-md-start">
-                                        <div
-                                            class="d-flex align-items-center flex-column flex-sm-column flex-md-column flex-lg-row">
+                                        <div class="d-flex align-items-center flex-column flex-sm-column flex-md-column flex-lg-row">
                                             <div class="no-thumbnail mb-2 mb-md-0">
-                                                <img class="avatar lg rounded-circle" src="assets/images/xs/avatar2.jpg"
-                                                    alt="">
+                                                <img class="avatar lg rounded-circle" src="assets/images/xs/avatar2.jpg" alt="">
                                             </div>
                                             <div class="flex-fill ms-3 text-truncate">
                                                 <h6 class="mb-0  fw-bold">Rachel Carr(you)</h6>
@@ -410,16 +369,13 @@
                                             <div class="members-action">
                                                 <span class="members-role ">Admin</span>
                                                 <div class="btn-group">
-                                                    <button type="button" class="btn bg-transparent dropdown-toggle"
-                                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                                    <button type="button" class="btn bg-transparent dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                                                         <i class="icofont-ui-settings  fs-6"></i>
                                                     </button>
                                                     <ul class="dropdown-menu dropdown-menu-end">
-                                                        <li><a class="dropdown-item" href="#"><i
-                                                                    class="icofont-ui-password fs-6 me-2"></i>ResetPassword</a>
+                                                        <li><a class="dropdown-item" href="#"><i class="icofont-ui-password fs-6 me-2"></i>ResetPassword</a>
                                                         </li>
-                                                        <li><a class="dropdown-item" href="#"><i
-                                                                    class="icofont-chart-line fs-6 me-2"></i>ActivityReport</a>
+                                                        <li><a class="dropdown-item" href="#"><i class="icofont-chart-line fs-6 me-2"></i>ActivityReport</a>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -427,21 +383,17 @@
                                         </div>
                                     </li>
                                     <li class="list-group-item py-3 text-center text-md-start">
-                                        <div
-                                            class="d-flex align-items-center flex-column flex-sm-column flex-md-column flex-lg-row">
+                                        <div class="d-flex align-items-center flex-column flex-sm-column flex-md-column flex-lg-row">
                                             <div class="no-thumbnail mb-2 mb-md-0">
-                                                <img class="avatar lg rounded-circle" src="assets/images/xs/avatar3.jpg"
-                                                    alt="">
+                                                <img class="avatar lg rounded-circle" src="assets/images/xs/avatar3.jpg" alt="">
                                             </div>
                                             <div class="flex-fill ms-3 text-truncate">
-                                                <h6 class="mb-0  fw-bold">Lucas Baker<a href="#"
-                                                        class="link-secondary ms-2">(Resend invitation)</a></h6>
+                                                <h6 class="mb-0  fw-bold">Lucas Baker<a href="#" class="link-secondary ms-2">(Resend invitation)</a></h6>
                                                 <span class="text-muted">lucas.baker@gmail.com</span>
                                             </div>
                                             <div class="members-action">
                                                 <div class="btn-group">
-                                                    <button type="button" class="btn bg-transparent dropdown-toggle"
-                                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                                    <button type="button" class="btn bg-transparent dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                                                         Members
                                                     </button>
                                                     <ul class="dropdown-menu dropdown-menu-end">
@@ -462,13 +414,11 @@
                                                     </ul>
                                                 </div>
                                                 <div class="btn-group">
-                                                    <button type="button" class="btn bg-transparent dropdown-toggle"
-                                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                                    <button type="button" class="btn bg-transparent dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                                                         <i class="icofont-ui-settings  fs-6"></i>
                                                     </button>
                                                     <ul class="dropdown-menu dropdown-menu-end">
-                                                        <li><a class="dropdown-item" href="#"><i
-                                                                    class="icofont-delete-alt fs-6 me-2"></i>Delete
+                                                        <li><a class="dropdown-item" href="#"><i class="icofont-delete-alt fs-6 me-2"></i>Delete
                                                                 Member</a></li>
                                                     </ul>
                                                 </div>
@@ -476,11 +426,9 @@
                                         </div>
                                     </li>
                                     <li class="list-group-item py-3 text-center text-md-start">
-                                        <div
-                                            class="d-flex align-items-center flex-column flex-sm-column flex-md-column flex-lg-row">
+                                        <div class="d-flex align-items-center flex-column flex-sm-column flex-md-column flex-lg-row">
                                             <div class="no-thumbnail mb-2 mb-md-0">
-                                                <img class="avatar lg rounded-circle" src="assets/images/xs/avatar8.jpg"
-                                                    alt="">
+                                                <img class="avatar lg rounded-circle" src="assets/images/xs/avatar8.jpg" alt="">
                                             </div>
                                             <div class="flex-fill ms-3 text-truncate">
                                                 <h6 class="mb-0  fw-bold">Una Coleman</h6>
@@ -488,8 +436,7 @@
                                             </div>
                                             <div class="members-action">
                                                 <div class="btn-group">
-                                                    <button type="button" class="btn bg-transparent dropdown-toggle"
-                                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                                    <button type="button" class="btn bg-transparent dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                                                         Members
                                                     </button>
                                                     <ul class="dropdown-menu dropdown-menu-end">
@@ -510,22 +457,17 @@
                                                 </div>
                                                 <div class="btn-group">
                                                     <div class="btn-group">
-                                                        <button type="button" class="btn bg-transparent dropdown-toggle"
-                                                            data-bs-toggle="dropdown" aria-expanded="false">
+                                                        <button type="button" class="btn bg-transparent dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                                                             <i class="icofont-ui-settings  fs-6"></i>
                                                         </button>
                                                         <ul class="dropdown-menu dropdown-menu-end">
-                                                            <li><a class="dropdown-item" href="#"><i
-                                                                        class="icofont-ui-password fs-6 me-2"></i>ResetPassword</a>
+                                                            <li><a class="dropdown-item" href="#"><i class="icofont-ui-password fs-6 me-2"></i>ResetPassword</a>
                                                             </li>
-                                                            <li><a class="dropdown-item" href="#"><i
-                                                                        class="icofont-chart-line fs-6 me-2"></i>ActivityReport</a>
+                                                            <li><a class="dropdown-item" href="#"><i class="icofont-chart-line fs-6 me-2"></i>ActivityReport</a>
                                                             </li>
-                                                            <li><a class="dropdown-item" href="#"><i
-                                                                        class="icofont-delete-alt fs-6 me-2"></i>Suspend
+                                                            <li><a class="dropdown-item" href="#"><i class="icofont-delete-alt fs-6 me-2"></i>Suspend
                                                                     member</a></li>
-                                                            <li><a class="dropdown-item" href="#"><i
-                                                                        class="icofont-not-allowed fs-6 me-2"></i>Delete
+                                                            <li><a class="dropdown-item" href="#"><i class="icofont-not-allowed fs-6 me-2"></i>Delete
                                                                     Member</a></li>
                                                         </ul>
                                                     </div>
@@ -542,10 +484,17 @@
         </div>
     </div>
 
-  <!-- Js Imports -->
-  <?php require_once('includes/js_imports.php') ?>
+    <!-- Js Imports -->
+    <!-- Jquery Core Js -->
+    <script src="assets/bundles/libscripts.bundle.js"></script>
+
+    <!-- Plugin Js-->
+    <script src="assets/bundles/apexcharts.bundle.js"></script>
+
+    <!-- Jquery Page Js -->
+    <script src="../js/template.js"></script>
+    <script src="../js/page/hr.js"></script>
 </body>
 
-<!-- Mirrored from www.pixelwibes.com/template/my-task/html/dist/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 12 Jan 2023 10:03:05 GMT -->
 
 </html>

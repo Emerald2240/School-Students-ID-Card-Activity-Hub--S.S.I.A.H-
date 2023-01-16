@@ -4,7 +4,7 @@
 
                         <!-- header rightbar icon -->
                         <div class="h-right d-flex align-items-center mr-5 mr-lg-0 order-1">
-                            <div class="d-flex">
+                            <!-- <div class="d-flex">
                                 <a class="nav-link text-primary collapsed" href="help.html" title="Get Help">
                                     <i class="icofont-info-square fs-5"></i>
                                 </a>
@@ -18,7 +18,7 @@
                                     <span class="avatar rounded-circle text-center pointer" data-bs-toggle="modal"
                                         data-bs-target="#addUser"><i class="icofont-ui-add"></i></span>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="dropdown notifications zindex-popover">
                                 <a class="nav-link dropdown-toggle pulse" href="#" role="button"
                                     data-bs-toggle="dropdown">
@@ -152,19 +152,14 @@
                                         <div class="list-group m-2 ">
                                             <a href="task.html"
                                                 class="list-group-item list-group-item-action border-0 "><i
-                                                    class="icofont-tasks fs-5 me-3"></i>My Task</a>
+                                                    class="icofont-tasks fs-5 me-3"></i>My Jobs</a>
                                             <a href="members.html"
                                                 class="list-group-item list-group-item-action border-0 "><i
-                                                    class="icofont-ui-user-group fs-6 me-3"></i>members</a>
+                                                    class="icofont-ui-user-group fs-6 me-3"></i>My Machine</a>
                                             <a href="ui-elements/auth-signin.html"
                                                 class="list-group-item list-group-item-action border-0 "><i
                                                     class="icofont-logout fs-6 me-3"></i>Signout</a>
-                                            <div>
-                                                <hr class="dropdown-divider border-dark">
-                                            </div>
-                                            <a href="ui-elements/auth-signup.html"
-                                                class="list-group-item list-group-item-action border-0 "><i
-                                                    class="icofont-contact-add fs-5 me-3"></i>Add personal account</a>
+                                        
                                         </div>
                                     </div>
                                 </div>

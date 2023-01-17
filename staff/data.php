@@ -2,7 +2,7 @@
 require_once('config/connect.php');
 require_once('functions/functions.php');
 
-if(!$_SESSION['super_log']){
+if (!$_SESSION['super_log']) {
     gotoPage('signin');
 }
 ?>
@@ -10,7 +10,6 @@ if(!$_SESSION['super_log']){
 <html class="no-js" lang="en" dir="ltr">
 
 
-<!-- Mirrored from www.pixelwibes.com/template/my-task/html/dist/attendance-employees.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 12 Jan 2023 10:03:26 GMT -->
 
 <head>
     <?php require_once('includes/head.php') ?>
@@ -682,8 +681,10 @@ if(!$_SESSION['super_log']){
             chart.render();
         });
     </script>
+    <!-- Custom Js -->
+    <?php require_once('includes/js_imports.php') ?>
+
 </body>
 
-<!-- Mirrored from www.pixelwibes.com/template/my-task/html/dist/attendance-employees.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 12 Jan 2023 10:03:26 GMT -->
 
 </html>

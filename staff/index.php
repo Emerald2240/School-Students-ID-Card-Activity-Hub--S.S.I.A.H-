@@ -370,6 +370,9 @@ if (!$_SESSION['super_log']) {
     <script src="../js/template.js"></script>
     <!-- <script src="js/hr.js"></script> -->
     <?php require_once('js/hr.php') ?>
+    <!-- Custom Js -->
+    <?php require_once('includes/js_imports.php') ?>
+
 </body>
 
 

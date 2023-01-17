@@ -26,7 +26,7 @@
                 <ul class="collapse" id="dashboard-Components">
                     <!-- active can be added here -->
                     <li><a class="ms-link" href="index"> <span>Summary</span></a></li>
-                    <!-- <li><a class="ms-link" href="data"> <span>Data Visualisation</span></a></li> -->
+                    <li><a class="ms-link" onclick="showAlert('Coming Soon', 'Feature still in construction')"> <span>Data Visualisation</span></a></li>
                 </ul>
             </li>
             <li class="collapsed">
@@ -39,13 +39,13 @@
                 </ul>
             </li>
 
-           
+
             <li class="collapsed">
                 <a class="m-link" data-bs-toggle="collapse" data-bs-target="#client-Components" href="#"><i class="icofont-user-male"></i> <span>Active Job Data</span> <span class="arrow icofont-dotted-down ms-auto text-end fs-5"></span></a>
                 <!-- Menu: Sub menu ul -->
                 <ul class="sub-menu collapse" id="client-Components">
                     <li><a class="ms-link" href="job_summary"> <span>Summary</span></a></li>
-                    <!-- <li><a class="ms-link" href="job_data"> <span>Data Visualisation</span></a></li> -->
+                    <li><a class="ms-link" href="job_data"> <span>Data Visualisation</span></a></li>
                 </ul>
             </li>
 
@@ -58,7 +58,7 @@
                 </ul>
             </li>
 
-            
+
             <li class="collapsed">
                 <a class="m-link" data-bs-toggle="collapse" data-bs-target="#menu-Componentstwo" href="#"><i class="icofont-ui-calculator"></i> <span>Developer Section</span> <span class="arrow icofont-dotted-down ms-auto text-end fs-5"></span></a>
                 <!-- Menu: Sub menu ul -->

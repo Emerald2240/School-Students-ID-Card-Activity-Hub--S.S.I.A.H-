@@ -47,11 +47,50 @@ function gotoPage($location)
     exit();
 }
 
+/**
+ * Removes unwanted and harmful characters
+ * 
+ * Takes in a string cleanses and formats it, then returns a clean copy.
+ * 
+ * @param string $data
+ * Any data or variable that may contain characters that needs cleansing.
+ * @param string $case
+ * [optional]
+ * 
+ * If set to 'lower' it automatically formats the results to lowercase, if set to 'none' it is left as it is, if set to 'clean' it formats the results to uppercase.
+ * @return string
+ * Returns cleansed string.
+ */
+function sanitize($data, $case = null)
+{
+    $result = htmlentities($data, ENT_QUOTES);
+    if ($case == 'lower') {
+        $result = strtoupper($result);
+    } elseif ($case == 'none') {
+        //leave it as it is
+    } elseif ($case == 'clean') {
+        $result = ucwords(strtolower($result));
+    } else {
+        $result = strtoupper($result);
+    }
+    return $result;
+}
+
 function getActiveTaskForStaff($staffId)
 {
     $myMachine = getStaffsMachine($staffId);
     if ($myMachine) {
         return getJobFromId($myMachine['active_job_id']);
+    } else {
+        return false;
+    }
+}
+
+function getActiveJobForStaff($staffId)
+{
+    $myMachine = getStaffsMachine($staffId);
+    if ($myMachine) {
+        return $myMachine['active_job_id'];
     } else {
         return false;
     }
@@ -81,7 +120,6 @@ function getJobFromId($jobId)
     }
 }
 
-
 function getTaskFromId($taskId)
 {
     global $db_handle;
@@ -102,7 +140,6 @@ function formatDateFriendlier($date, $format = null)
     return date('d', strtotime($date)) . '/' . date('m', strtotime($date)) . '/' . date('Y', strtotime($date));
 }
 
-
 function formatDateHourAndMinute($date, $format = null)
 {
     if (isset($format)) {
@@ -116,7 +153,7 @@ function shortenText($text, $length)
     if ((strlen($text) - $length) >= 3) {
         return substr($text, 0, $length) . '...';
     } else {
-        return substr($text, 0, $length) . '...';
+        return $text;
     }
 }
 
@@ -282,6 +319,37 @@ function getLatestJobEntryFromStudentForStaff($studentId, $staffId)
             if ($job['staff_id'] == $staffId)
                 return $jobEntry;
         }
+    } else {
+        return false;
+    }
+}
+
+function createNewJob($title, $taskId, $staffId)
+{
+    global $db_handle;
+
+    $title = sanitize($title, 'clean');
+
+    $query = "INSERT INTO `jobs` (
+    `name`,
+    `task_id`,
+    `staff_id`
+         ) VALUES (
+    '$title', 
+    $taskId,
+    $staffId
+         )";
+    return $db_handle->runQueryWithoutResponse($query);
+}
+
+function deleteJob($jobId)
+{
+    global $db_handle;
+    //$response = [];
+    $result = $db_handle->deleteSingleColumnWhere1Condition('jobs', 'id', $jobId);
+
+    if (isset($result)) {
+        return ($result);
     } else {
         return false;
     }

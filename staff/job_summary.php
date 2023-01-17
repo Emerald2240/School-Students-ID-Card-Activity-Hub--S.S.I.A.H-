@@ -2,7 +2,7 @@
 require_once('config/connect.php');
 require_once('functions/functions.php');
 
-if(!$_SESSION['super_log']){
+if (!$_SESSION['super_log']) {
     gotoPage('signin');
 }
 ?>
@@ -254,7 +254,7 @@ if(!$_SESSION['super_log']){
                                 </div>
                             </div>
                         </div>
-                       
+
                     </div><!-- Row End -->
                 </div>
             </div>
@@ -414,6 +414,10 @@ if(!$_SESSION['super_log']){
     <!-- Jquery Page Js -->
     <script src="../js/template.js"></script>
     <script src="../js/page/hr.js"></script>
+
+    <!-- Custom Js -->
+    <?php require_once('includes/js_imports.php') ?>
+
 </body>
 
 

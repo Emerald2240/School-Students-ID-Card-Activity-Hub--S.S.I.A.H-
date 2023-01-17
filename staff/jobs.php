@@ -2,7 +2,7 @@
 require_once('config/connect.php');
 require_once('functions/functions.php');
 
-if(!$_SESSION['super_log']){
+if (!$_SESSION['super_log']) {
     gotoPage('signin');
 }
 ?>
@@ -10,7 +10,6 @@ if(!$_SESSION['super_log']){
 <html class="no-js" lang="en" dir="ltr">
 
 
-<!-- Mirrored from www.pixelwibes.com/template/my-task/html/dist/tickets.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 12 Jan 2023 10:03:23 GMT -->
 
 <head>
     <?php require_once('includes/head.php') ?>
@@ -64,30 +63,49 @@ if(!$_SESSION['super_log']){
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>
-                                                    <a href="ticket-detail.html" class="fw-bold text-secondary">#Tc-0002</a>
-                                                </td>
-                                                <td>
-                                                    CEE 141 | Lecture 1 Attendance
-                                                </td>
-                                                <td>
-                                                    <span class="fw-bold ms-1">Attendance</span>
-                                                </td>
-                                                <td>
-                                                    12/03/2021
-                                                </td>
-                                                <td><span class="badge bg-danger">Active</span></td>
-                                                <td>
-                                                    <div class="btn-group" role="group" aria-label="Basic outlined example">
-                                                        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#edittickit"><i class="icofont-edit text-success"></i></button>
-                                                        <button type="button" class="btn btn-outline-secondary deleterow"><i class="icofont-ui-delete text-danger"></i></button>
-                                                        <button type="button" class="btn btn-outline-secondary"><i class="icofont-download text-primary"></i></button>
+                                            <?php
+                                            $jobs = getAllJobsForStaff($_SESSION['staff_id']);
+                                            $activeJob = getActiveJobForStaff($_SESSION['staff_id']);
+                                            foreach ($jobs as $job) {
+                                                $task = getTaskFromId($job['task_id']);
+                                            ?>
+                                                <tr>
+                                                    <td>
+                                                        <a href="ticket-detail.html" class="fw-bold text-secondary"><?= $job['id'] ?></a>
+                                                    </td>
+                                                    <td>
+                                                        <?= shortenText($job['name'], 25) ?>
+                                                    </td>
+                                                    <td>
+                                                        <span class="fw-bold ms-1"><?= $task['name'] ?></span>
+                                                    </td>
+                                                    <td>
+                                                        <?= formatDateFriendlier($job['date_updated']) ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php
+                                                        if ($job['id'] == $activeJob) { ?>
+                                                            <span class="badge bg-danger">Active</span>
+                                                        <?php } else { ?>
+                                                            <a href="functions/activateJob?id=<?= $job['id'] ?>"><span class="badge bg-success">Waiting</span></a>
+                                                        <?php } ?>
+                                                    </td>
+                                                    <td>
+                                                        <div class="btn-group" role="group" aria-label="Basic outlined example">
+                                                            <!-- <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#edittickit"><i class="icofont-edit text-success"></i></button> -->
+                                                            <!-- <a href="" type="button" onclick="sweetAlertConfirmation(`functions/deleteJob?id=<?= $job['id'] ?>`)" class="btn btn-outline-secondary deleterow"><i class="icofont-ui-delete text-danger"></i></a> -->
+                                                            <button type="button" href="" onclick="sweetAlertConfirmation(`functions/deleteJob?id=<?= $job['id'] ?>`)" class="btn btn-outline-secondary"><i class="icofont-ui-delete text-danger"></i></button>
+                                                            <a href="functions/downloadJobData?id=<?= $job['id'] ?>" type="button" class="btn btn-outline-secondary"><i class="icofont-download text-primary"></i></a>
 
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+                                            <?php
+                                            }
+                                            ?>
+
+                                            <!-- <tr>
                                                 <td>
                                                     <a href="ticket-detail.html" class="fw-bold text-secondary">#Tc-0006</a>
                                                 </td>
@@ -201,7 +219,8 @@ if(!$_SESSION['super_log']){
 
                                                     </div>
                                                 </td>
-                                            </tr>
+                                            </tr> -->
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -212,7 +231,7 @@ if(!$_SESSION['super_log']){
             </div>
 
             <!-- Modal Members-->
-            <div class="modal fade" id="addUser" tabindex="-1" aria-labelledby="addUserLabel" aria-hidden="true">
+            <!-- <div class="modal fade" id="addUser" tabindex="-1" aria-labelledby="addUserLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -345,49 +364,40 @@ if(!$_SESSION['super_log']){
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <!-- Add Tickit-->
             <div class="modal fade" id="tickadd" tabindex="-1" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered modal-md modal-dialog-scrollable">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title  fw-bold" id="leaveaddLabel"> Tickit Add</h5>
+                            <h5 class="modal-title  fw-bold" id="leaveaddLabel"> Create Job</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="modal-body">
-                            <div class="mb-3">
-                                <label for="sub" class="form-label">Subject</label>
-                                <input type="text" class="form-control" id="sub">
+                        <form action="functions/newJob.php" method="post">
+                            <div class="modal-body">
+                                <div class="mb-3">
+                                    <label for="sub" class="form-label">Title</label>
+                                    <input type="text" name="job_title" class="form-control" id="sub">
+                                </div>
+                                <div class="deadline-form">
+
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Task</label>
+                                    <select name="task" class="form-select">
+                                        <option selected value="1">School Fees</option>
+                                        <option value="2">Departmental Fees</option>
+                                        <option value="3">Faculty Fees</option>
+                                        <option value="4">Attendance</option>
+                                    </select>
+                                </div>
                             </div>
-                            <div class="deadline-form">
-                                <form>
-                                    <div class="row g-3 mb-3">
-                                        <div class="col">
-                                            <label for="depone" class="form-label">Assign Name</label>
-                                            <input type="text" class="form-control" id="depone">
-                                        </div>
-                                        <div class="col">
-                                            <label for="deptwo" class="form-label">Creted Date</label>
-                                            <input type="date" class="form-control" id="deptwo">
-                                        </div>
-                                    </div>
-                                </form>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                <button onclick type="submit" class="btn btn-primary">Create</button>
                             </div>
-                            <div class="mb-3">
-                                <label class="form-label">Status</label>
-                                <select class="form-select">
-                                    <option selected>In Progress</option>
-                                    <option value="1">Completed</option>
-                                    <option value="2">Wating</option>
-                                    <option value="3">Decline</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Done</button>
-                            <button type="submit" class="btn btn-primary">sent</button>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -397,42 +407,34 @@ if(!$_SESSION['super_log']){
                 <div class="modal-dialog modal-dialog-centered modal-md modal-dialog-scrollable">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title  fw-bold" id="edittickitLabel"> Tickit Edit</h5>
+                            <h5 class="modal-title  fw-bold" id="edittickitLabel"> Edit Job</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="modal-body">
-                            <div class="mb-3">
-                                <label for="sub1" class="form-label">Subject</label>
-                                <input type="text" class="form-control" id="sub1" value="punching time not proper">
+                        <form action="functions/newJob.php" method="post">
+                            <div class="modal-body">
+                                <div class="mb-3">
+                                    <label for="sub" class="form-label">Title</label>
+                                    <input type="text" name="job_title" class="form-control" id="sub">
+                                </div>
+                                <div class="deadline-form">
+
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Task</label>
+                                    <select name="task" class="form-select">
+                                        <option selected value="1">School Fees</option>
+                                        <option value="2">Departmental Fees</option>
+                                        <option value="3">Faculty Fees</option>
+                                        <option value="4">Attendance</option>
+                                    </select>
+                                </div>
                             </div>
-                            <div class="deadline-form">
-                                <form>
-                                    <div class="row g-3 mb-3">
-                                        <div class="col">
-                                            <label for="depone11" class="form-label">Assign Name</label>
-                                            <input type="text" class="form-control" id="depone11" value="Victor Rampling">
-                                        </div>
-                                        <div class="col">
-                                            <label for="deptwo56" class="form-label">Creted Date</label>
-                                            <input type="date" class="form-control" id="deptwo56" value="2021-02-25">
-                                        </div>
-                                    </div>
-                                </form>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                <button onclick type="submit" class="btn btn-primary">Edit</button>
                             </div>
-                            <div class="mb-3">
-                                <label class="form-label">Status</label>
-                                <select class="form-select">
-                                    <option selected>Completed</option>
-                                    <option value="1">In Progress</option>
-                                    <option value="2">Wating</option>
-                                    <option value="3">Decline</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Done</button>
-                            <button type="submit" class="btn btn-primary">sent</button>
-                        </div>
+                        </form>
+
                     </div>
                 </div>
             </div>
@@ -470,8 +472,12 @@ if(!$_SESSION['super_log']){
             });
         });
     </script>
+    <?php require_once('includes/js_imports.php') ?>
+
+    <!-- Custom Js -->
+    <?php require_once('includes/js_imports.php') ?>
+
 </body>
 
-<!-- Mirrored from www.pixelwibes.com/template/my-task/html/dist/tickets.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 12 Jan 2023 10:03:23 GMT -->
 
 </html>

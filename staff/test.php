@@ -26,4 +26,6 @@ echo '<pre>';
 
 // echo getEntryValidity(getAllJobEntriesForStaff(1), false);
 
-print_r(getLatestJobEntryFromStudentForStaff(8, 1));
+// print_r(getLatestJobEntryFromStudentForStaff(8, 1));
+
+print_r(getActiveJobForStaff(1));

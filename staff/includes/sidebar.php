@@ -45,7 +45,7 @@
                 <!-- Menu: Sub menu ul -->
                 <ul class="sub-menu collapse" id="client-Components">
                     <li><a class="ms-link" href="job_summary"> <span>Summary</span></a></li>
-                    <li><a class="ms-link" href="job_data"> <span>Data Visualisation</span></a></li>
+                    <!-- <li><a class="ms-link" href="job_data"> <span>Data Visualisation</span></a></li> -->
                 </ul>
             </li>
 

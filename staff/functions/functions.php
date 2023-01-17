@@ -354,3 +354,42 @@ function deleteJob($jobId)
         return false;
     }
 }
+
+function activateJob($jobId, $machineId)
+{
+    global $db_handle;
+    //$response = [];
+    $result = $db_handle->updateSingleColumnWhere1Condition('machines', 'active_job_id', $jobId, 'id', $machineId);
+
+    if (isset($result)) {
+        return ($result);
+    } else {
+        return false;
+    }
+}
+
+function getAllJobEntriesForJobId($jobId)
+{
+    global $db_handle;
+
+    $result = $db_handle->selectAllWhere('job_entries', 'job_id', $jobId);
+    if (isset($result)) {
+        return $result;
+    } else {
+        return false;
+    }
+}
+
+function getAllStudentsScannedPerJobId($jobId)
+{
+    $allJobEntries = getAllJobEntriesForJobId($jobId);
+    $allStudents = [];
+
+    foreach ($allJobEntries as $jobEntry) {
+        if (!array_search($jobEntry['student_id'], $allStudents)) {
+            array_push($allStudents, $jobEntry['student_id']);
+        }
+    }
+
+    return $allStudents;
+}

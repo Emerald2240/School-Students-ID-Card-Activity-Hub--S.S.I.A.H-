@@ -1,1 +1,3 @@
 staff/config/connect.php
+student/config/connect.php
+super/config/connect.php

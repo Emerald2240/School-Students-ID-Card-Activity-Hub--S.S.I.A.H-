@@ -24,7 +24,7 @@ class DBController
 		if ($conn->connect_error) {
 			die("Error Occured" . $conn->connect_error);
 		} else {
-			echo "Connection Established";
+			// echo "Connection Established";
 		}
 		return $conn;
 	}

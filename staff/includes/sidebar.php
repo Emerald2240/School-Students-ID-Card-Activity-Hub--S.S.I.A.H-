@@ -8,7 +8,10 @@
                     <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z" />
                 </svg>
             </span>
-            <span class="logo-text">Attendance-Task| 12/01/2022</span>
+            <?php
+            $activeTask = getActiveTaskForStaff($_SESSION['staff_id']);
+            ?>
+            <span class="logo-text"><?= shortenText($activeTask['name'], 25) ?> | <?= formatDateFriendlier($activeTask['date_updated']) ?></span>
         </a>
         <!-- Menu: main ul -->
 
@@ -51,6 +54,16 @@
                 <!-- Menu: Sub menu ul -->
                 <ul class="sub-menu collapse" id="menu-Componentsone">
                     <li><a class="ms-link" href="machine-info"><span>Info</span> </a></li>
+                    <!-- <li><a class="ms-link" href="machine-settings"><span>Settings</span> </a></li> -->
+                </ul>
+            </li>
+
+            
+            <li class="collapsed">
+                <a class="m-link" data-bs-toggle="collapse" data-bs-target="#menu-Componentstwo" href="#"><i class="icofont-ui-calculator"></i> <span>Developer Section</span> <span class="arrow icofont-dotted-down ms-auto text-end fs-5"></span></a>
+                <!-- Menu: Sub menu ul -->
+                <ul class="sub-menu collapse" id="menu-Componentstwo">
+                    <li><a class="ms-link" href="test"><span>Test Page</span> </a></li>
                     <!-- <li><a class="ms-link" href="machine-settings"><span>Settings</span> </a></li> -->
                 </ul>
             </li>

@@ -1,3 +1,12 @@
+<?php
+require_once('config/connect.php');
+require_once('functions/functions.php');
+
+if(!$_SESSION['super_log']){
+    gotoPage('signin');
+}
+?>
+
 <!doctype html>
 <html class="no-js" lang="en" dir="ltr">
 
@@ -6,7 +15,7 @@
 <head>
     <?php require_once('includes/head.php') ?>
 
-    <title>:: Attendance-Task:: Employee Dashboard </title>
+    <title>:: S.S.I.A.H :: Staff Dashboard </title>
 </head>
 
 <body>

@@ -107,7 +107,7 @@ if (!$_SESSION['super_log']) {
                                 <div class="col-md-12">
                                     <div class="card">
                                         <div class="card-header py-3 d-flex justify-content-between bg-transparent border-bottom-0">
-                                            <h6 class="mb-0 fw-bold ">Top Scanned Sources</h6>
+                                            <h6 class="mb-0 fw-bold ">Top Scanned Tasks</h6>
                                         </div>
                                         <div class="card-body">
                                             <div id="hiringsources"></div>

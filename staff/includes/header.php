@@ -25,7 +25,7 @@
                                     <i class="icofont-alarm fs-5"></i>
                                     <span class="pulse-ring"></span>
                                 </a>
-                                <div id="NotificationsDiv"
+                                <!-- <div id="NotificationsDiv"
                                     class="dropdown-menu rounded-lg shadow border-0 dropdown-animation dropdown-menu-sm-end p-0 m-0">
                                     <div class="card border-0 w380">
                                         <div class="card-header border-0 p-3">
@@ -118,12 +118,12 @@
                                         <a class="card-footer text-center border-top-0" href="#"> View all
                                             notifications</a>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                             <div class="dropdown user-profile ml-2 ml-sm-3 d-flex align-items-center zindex-popover">
                                 <div class="u-info me-2">
-                                    <p class="mb-0 text-end line-height-sm "><span class="font-weight-bold">Dylan
-                                            Hunter</span></p>
+                                    <p class="mb-0 text-end line-height-sm "><span class="font-weight-bold"><?= $_SESSION['full_name'] ?>
+                                    </span></p>
                                     <small>Staff Profile</small>
                                 </div>
                                 <a class="nav-link dropdown-toggle pulse p-0" href="#" role="button"
@@ -139,9 +139,9 @@
                                                 <img class="avatar rounded-circle" src="assets/images/profile_av.png"
                                                     alt="profile">
                                                 <div class="flex-fill ms-3">
-                                                    <p class="mb-0"><span class="font-weight-bold">Dylan Hunter</span>
+                                                    <p class="mb-0"><span class="font-weight-bold"><?= $_SESSION['full_name'] ?></span>
                                                     </p>
-                                                    <small class="">Dylan.hunter@gmail.com</small>
+                                                    <small class=""><?= $_SESSION['staff_email'] ?></small>
                                                 </div>
                                             </div>
 
@@ -153,7 +153,7 @@
                                             <a href="task.html"
                                                 class="list-group-item list-group-item-action border-0 "><i
                                                     class="icofont-tasks fs-5 me-3"></i>My Jobs</a>
-                                            <a href="members.html"
+                                            <a href="jobs"
                                                 class="list-group-item list-group-item-action border-0 "><i
                                                     class="icofont-ui-user-group fs-6 me-3"></i>My Machine</a>
                                             <a href="ui-elements/auth-signin.html"

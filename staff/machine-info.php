@@ -74,10 +74,13 @@ if (!$machineInfo) {
                                     </div>
                                     <div style="text-align: center;" class="col-12">
                                         <div  class="mb-2">
-                                            <h4><i><?= $machineInfo['name'] ?></i></h4> <br>
+                                            <h4><i>~ <?= $machineInfo['name'] ?> ~</i></h4> <br>
+                                            Current Handler: <strong><?= $_SESSION['full_name'] ?></strong><br>
+                                            Active Job: <strong><?= shortenText($activeJobInfo['name'], 25) ?></strong><br><br>
+
                                             WiFi/SSID Name: Free Data <br>
-                                            Password: free data <br><br>
-                                            Active Job: <strong><?= shortenText($activeJobInfo['name'], 25) ?></strong>
+                                            Password: free data 
+                                        
                                         </div>
                                     </div>
                                     <div class="col-12">

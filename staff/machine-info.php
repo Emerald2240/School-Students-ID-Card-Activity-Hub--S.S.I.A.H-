@@ -37,7 +37,7 @@ if (!$machineInfo) {
         <div class="main p-2 py-3 p-xl-5 ">
 
             <!-- Body: Body -->
-            <div class="body d-flex p-0 p-xl-5">
+            <div style="margin-top: 6%;" class="body d-flex p-0 p-xl-5">
                 <div class="container-xxl">
 
                     <div class="row g-0">
@@ -74,12 +74,12 @@ if (!$machineInfo) {
                                     </div>
                                     <div style="text-align: center;" class="col-12">
                                         <div  class="mb-2">
-                                            <h4><i>~ <?= $machineInfo['name'] ?> ~</i></h4> <br>
+                                            <h4><i>~ <?= $machineInfo['name'] ?> ~</i></h4><p style="font-size: 8px;"><i><?= $machineInfo['machine_id'] ?></i></p> <br>
                                             Current Handler: <strong><?= $_SESSION['full_name'] ?></strong><br>
                                             Active Job: <strong><?= shortenText($activeJobInfo['name'], 25) ?></strong><br><br>
 
-                                            WiFi/SSID Name: Free Data <br>
-                                            Password: free data 
+                                            WiFi/SSID Name: TassiahMK1 <br>
+                                            Password:  tx101
                                         
                                         </div>
                                     </div>

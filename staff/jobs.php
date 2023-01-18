@@ -57,7 +57,7 @@ if (!$_SESSION['super_log']) {
                                                 <th>Job ID</th>
                                                 <th>Title</th>
                                                 <th>Task</th>
-                                                <th>Created Date</th>
+                                                <th>Date Created</th>
                                                 <th>Status</th>
                                                 <th>Scans</th>
                                                 <th>Actions</th>
@@ -79,7 +79,7 @@ if (!$_SESSION['super_log']) {
                                             ?>
                                                 <tr>
                                                     <td>
-                                                        <a href="ticket-detail.html" class="fw-bold text-secondary"><?= $job['id'] ?></a>
+                                                        <span class="fw-bold text-secondary"><?= $job['id'] ?></span>
                                                     </td>
                                                     <td>
                                                         <?= shortenText($job['name'], 25) ?>

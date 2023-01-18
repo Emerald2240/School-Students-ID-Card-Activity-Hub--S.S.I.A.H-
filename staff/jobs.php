@@ -82,7 +82,14 @@ if (!$_SESSION['super_log']) {
                                                         <span class="fw-bold text-secondary"><?= $job['id'] ?></span>
                                                     </td>
                                                     <td>
-                                                        <?= shortenText($job['name'], 25) ?>
+                                                        <?php
+                                                        if ($job['id'] == $activeJob) { ?>
+                                                            <strong><?= shortenText($job['name'], 25) ?></strong>
+                                                        <?php } else { ?>
+                                                            <?= shortenText($job['name'], 25) ?>
+                                                        <?php } ?>
+
+
                                                     </td>
                                                     <td>
                                                         <span class="fw-bold ms-1"><?= $task['name'] ?></span>

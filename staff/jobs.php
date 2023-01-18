@@ -123,121 +123,8 @@ if (!$_SESSION['super_log']) {
                                             }
                                             ?>
 
-                                            <!-- <tr>
-                                                <td>
-                                                    <a href="ticket-detail.html" class="fw-bold text-secondary">#Tc-0006</a>
-                                                </td>
-                                                <td>
-                                                    School Fees for Quiz 1
-                                                </td>
-                                                <td>
-                                                    <span class="fw-bold ms-1">School Fees</span>
-                                                </td>
-                                                <td>
-                                                    12/03/2021
-                                                </td>
-                                                <td><span class="badge bg-success">Waiting</span></td>
-                                                <td>
-                                                    <div class="btn-group" role="group" aria-label="Basic outlined example">
-                                                        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#edittickit"><i class="icofont-edit text-success"></i></button>
-                                                        <button type="button" class="btn btn-outline-secondary deleterow"><i class="icofont-ui-delete text-danger"></i></button>
-                                                        <button type="button" class="btn btn-outline-secondary"><i class="icofont-download text-primary"></i></button>
-
-                                                    </div>
-                                                </td>
                                             </tr>
-                                            <tr>
-                                                <td>
-                                                    <a href="ticket-detail.html" class="fw-bold text-secondary">#Tc-0004</a>
-                                                </td>
-                                                <td>
-                                                    Departmental Fees for Exams
-                                                </td>
-                                                <td>
-                                                    <span class="fw-bold ms-1">Departmental Fees</span>
-                                                </td>
-                                                <td>
-                                                    16/03/2021
-                                                </td>
-                                                <td><span class="badge bg-success">Waiting</span></td>
-                                                <td>
-                                                    <div class="btn-group" role="group" aria-label="Basic outlined example">
-                                                        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#edittickit"><i class="icofont-edit text-success"></i></button>
-                                                        <button type="button" class="btn btn-outline-secondary deleterow"><i class="icofont-ui-delete text-danger"></i></button>
-                                                        <button type="button" class="btn btn-outline-secondary"><i class="icofont-download text-primary"></i></button>
 
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <a href="ticket-detail.html" class="fw-bold text-secondary">#Tc-00011</a>
-                                                </td>
-                                                <td>
-                                                CEE 141 | Lecture 2 Attendance
-                                                </td>
-                                                <td>
-                                                    <span class="fw-bold ms-1">Attendance</span>
-                                                </td>
-                                                <td>
-                                                    25/02/2021
-                                                </td>
-                                                <td><span class="badge bg-success">Waiting</span></td>
-                                                <td>
-                                                    <div class="btn-group" role="group" aria-label="Basic outlined example">
-                                                        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#edittickit"><i class="icofont-edit text-success"></i></button>
-                                                        <button type="button" class="btn btn-outline-secondary deleterow"><i class="icofont-ui-delete text-danger"></i></button>
-                                                        <button type="button" class="btn btn-outline-secondary"><i class="icofont-download text-primary"></i></button>
-
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <a href="ticket-detail.html" class="fw-bold text-secondary">#Tc-00021</a>
-                                                </td>
-                                                <td>
-                                                    Faculty Fees for 2017/2018 Set Filing
-                                                </td>
-                                                <td>
-                                                    <span class="fw-bold ms-1">Faculty Fees</span>
-                                                </td>
-                                                <td>
-                                                    16/02/2021
-                                                </td>
-                                                <td><span class="badge bg-success">Waiting</span></td>
-                                                <td>
-                                                    <div class="btn-group" role="group" aria-label="Basic outlined example">
-                                                        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#edittickit"><i class="icofont-edit text-success"></i></button>
-                                                        <button type="button" class="btn btn-outline-secondary deleterow"><i class="icofont-ui-delete text-danger"></i></button>
-                                                        <button type="button" class="btn btn-outline-secondary"><i class="icofont-download text-primary"></i></button>
-
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <a href="ticket-detail.html" class="fw-bold text-secondary">#Tc-00041</a>
-                                                </td>
-                                                <td>
-                                                CEE 141 | Lecture 3 Attendance
-                                                </td>
-                                                <td>
-                                                    <span class="fw-bold ms-1">Attendance</span>
-                                                </td>
-                                                <td>
-                                                    18/01/2021
-                                                </td>
-                                                <td><span class="badge bg-success">Waiting</span></td>
-                                                <td>
-                                                    <div class="btn-group" role="group" aria-label="Basic outlined example">
-                                                        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#edittickit"><i class="icofont-edit text-success"></i></button>
-                                                        <button type="button" class="btn btn-outline-secondary deleterow"><i class="icofont-ui-delete text-danger"></i></button>
-                                                        <button type="button" class="btn btn-outline-secondary"><i class="icofont-download text-primary"></i></button>
-
-                                                    </div>
-                                                </td>
-                                            </tr> -->
 
                                         </tbody>
                                     </table>
@@ -477,7 +364,8 @@ if (!$_SESSION['super_log']) {
                     columnDefs: [{
                         targets: [-1, -3],
                         className: 'dt-body-right'
-                    }]
+                    }],
+                    order: [[4, 'asc']]
                 });
             $('.deleterow').on('click', function() {
                 var tablename = $(this).closest('table').DataTable();

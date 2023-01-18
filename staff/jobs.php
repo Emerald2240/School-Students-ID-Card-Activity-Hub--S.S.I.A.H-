@@ -459,7 +459,7 @@ if (!$_SESSION['super_log']) {
     <script src="assets/bundles/dataTables.bundle.js"></script>
 
     <!-- Jquery Page Js -->
-    <script src="../js/template.js"></script>
+    <script src="../js/template.js?v=<?php echo time(); ?>"></script>
     <script>
         // project data table
         $(document).ready(function() {

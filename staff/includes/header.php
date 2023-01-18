@@ -156,7 +156,7 @@
             </div>
 
             <!-- menu toggler -->
-            <button class="navbar-toggler p-0 border-0 menu-toggle order-3" type="button" data-bs-toggle="collapse" data-bs-target="#mainHeader">
+            <button class="navbar-toggler p-0 border-0 menu-toggle order-3 ms-1" type="button" data-bs-toggle="collapse" data-bs-target="#mainHeader">
                 <span class="fa fa-bars">B</span>
             </button>
 

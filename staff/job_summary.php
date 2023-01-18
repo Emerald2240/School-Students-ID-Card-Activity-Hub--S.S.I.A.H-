@@ -14,7 +14,6 @@ if (!$_SESSION['super_log']) {
 
 <head>
     <?php require_once('includes/head.php') ?>
-
     <title>:: S.S.I.A.H :: Staff Dashboard </title>
 </head>
 
@@ -67,7 +66,7 @@ if (!$_SESSION['super_log']) {
                                                         <div class="card-body ">
                                                             <i class="text-primary icofont-bars fs-3"></i>
                                                             <h6 class="mt-3 mb-0 fw-bold small-14">Job Percentage Overall</h6>
-                                                            <span class="text-muted"><?= floor((count(getAllJobEntriesForJobId($activeJobId)) / count(getAllJobsForStaff($_SESSION['staff_id'])) * 100)) ?>%</span>
+                                                            <span class="text-muted"><?= floor((count(getAllJobEntriesForJobId($activeJobId)) / count(getAllJobEntriesForStaff($_SESSION['staff_id'])) * 100)) ?>%</span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -208,148 +207,7 @@ if (!$_SESSION['super_log']) {
             </div>
         </div>
 
-        <!-- Modal Members-->
-        <!-- <div class="modal fade" id="addUser" tabindex="-1" aria-labelledby="addUserLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title  fw-bold" id="addUserLabel">Employee Invitation</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="inviteby_email">
-                            <div class="input-group mb-3">
-                                <input type="email" class="form-control" placeholder="Email address" id="exampleInputEmail1" aria-describedby="exampleInputEmail1">
-                                <button class="btn btn-dark" type="button" id="button-addon2">Sent</button>
-                            </div>
-                        </div>
-                        <div class="members_list">
-                            <h6 class="fw-bold ">Employee </h6>
-                            <ul class="list-unstyled list-group list-group-custom list-group-flush mb-0">
-                                <li class="list-group-item py-3 text-center text-md-start">
-                                    <div class="d-flex align-items-center flex-column flex-sm-column flex-md-column flex-lg-row">
-                                        <div class="no-thumbnail mb-2 mb-md-0">
-                                            <img class="avatar lg rounded-circle" src="assets/images/xs/avatar2.jpg" alt="">
-                                        </div>
-                                        <div class="flex-fill ms-3 text-truncate">
-                                            <h6 class="mb-0  fw-bold">Rachel Carr(you)</h6>
-                                            <span class="text-muted">rachel.carr@gmail.com</span>
-                                        </div>
-                                        <div class="members-action">
-                                            <span class="members-role ">Admin</span>
-                                            <div class="btn-group">
-                                                <button type="button" class="btn bg-transparent dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                                    <i class="icofont-ui-settings  fs-6"></i>
-                                                </button>
-                                                <ul class="dropdown-menu dropdown-menu-end">
-                                                    <li><a class="dropdown-item" href="#"><i class="icofont-ui-password fs-6 me-2"></i>ResetPassword</a>
-                                                    </li>
-                                                    <li><a class="dropdown-item" href="#"><i class="icofont-chart-line fs-6 me-2"></i>ActivityReport</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="list-group-item py-3 text-center text-md-start">
-                                    <div class="d-flex align-items-center flex-column flex-sm-column flex-md-column flex-lg-row">
-                                        <div class="no-thumbnail mb-2 mb-md-0">
-                                            <img class="avatar lg rounded-circle" src="assets/images/xs/avatar3.jpg" alt="">
-                                        </div>
-                                        <div class="flex-fill ms-3 text-truncate">
-                                            <h6 class="mb-0  fw-bold">Lucas Baker<a href="#" class="link-secondary ms-2">(Resend invitation)</a></h6>
-                                            <span class="text-muted">lucas.baker@gmail.com</span>
-                                        </div>
-                                        <div class="members-action">
-                                            <div class="btn-group">
-                                                <button type="button" class="btn bg-transparent dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                                    Members
-                                                </button>
-                                                <ul class="dropdown-menu dropdown-menu-end">
-                                                    <li>
-                                                        <a class="dropdown-item" href="#">
-                                                            <i class="icofont-check-circled"></i>
 
-                                                            <span>All operations permission</span>
-                                                        </a>
-
-                                                    </li>
-                                                    <li>
-                                                        <a class="dropdown-item" href="#">
-                                                            <i class="fs-6 p-2 me-1"></i>
-                                                            <span>Only Invite & manage team</span>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="btn-group">
-                                                <button type="button" class="btn bg-transparent dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                                    <i class="icofont-ui-settings  fs-6"></i>
-                                                </button>
-                                                <ul class="dropdown-menu dropdown-menu-end">
-                                                    <li><a class="dropdown-item" href="#"><i class="icofont-delete-alt fs-6 me-2"></i>Delete
-                                                            Member</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="list-group-item py-3 text-center text-md-start">
-                                    <div class="d-flex align-items-center flex-column flex-sm-column flex-md-column flex-lg-row">
-                                        <div class="no-thumbnail mb-2 mb-md-0">
-                                            <img class="avatar lg rounded-circle" src="assets/images/xs/avatar8.jpg" alt="">
-                                        </div>
-                                        <div class="flex-fill ms-3 text-truncate">
-                                            <h6 class="mb-0  fw-bold">Una Coleman</h6>
-                                            <span class="text-muted">una.coleman@gmail.com</span>
-                                        </div>
-                                        <div class="members-action">
-                                            <div class="btn-group">
-                                                <button type="button" class="btn bg-transparent dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                                    Members
-                                                </button>
-                                                <ul class="dropdown-menu dropdown-menu-end">
-                                                    <li>
-                                                        <a class="dropdown-item" href="#">
-                                                            <i class="icofont-check-circled"></i>
-
-                                                            <span>All operations permission</span>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="dropdown-item" href="#">
-                                                            <i class="fs-6 p-2 me-1"></i>
-                                                            <span>Only Invite & manage team</span>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="btn-group">
-                                                <div class="btn-group">
-                                                    <button type="button" class="btn bg-transparent dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                                        <i class="icofont-ui-settings  fs-6"></i>
-                                                    </button>
-                                                    <ul class="dropdown-menu dropdown-menu-end">
-                                                        <li><a class="dropdown-item" href="#"><i class="icofont-ui-password fs-6 me-2"></i>ResetPassword</a>
-                                                        </li>
-                                                        <li><a class="dropdown-item" href="#"><i class="icofont-chart-line fs-6 me-2"></i>ActivityReport</a>
-                                                        </li>
-                                                        <li><a class="dropdown-item" href="#"><i class="icofont-delete-alt fs-6 me-2"></i>Suspend
-                                                                member</a></li>
-                                                        <li><a class="dropdown-item" href="#"><i class="icofont-not-allowed fs-6 me-2"></i>Delete
-                                                                Member</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
     </div>
     </div>
 
@@ -361,28 +219,14 @@ if (!$_SESSION['super_log']) {
     <script src="assets/bundles/apexcharts.bundle.js"></script>
 
     <!-- Jquery Page Js -->
-    <script src="../js/template.js"></script>
+    <script src="../js/template.js?v=<?php echo time(); ?>"></script>
     <!-- <script src="js/hr.js"></script> -->
     <?php require_once('js/hr2.php') ?>
     <!-- Custom Js -->
     <?php require_once('includes/js_imports.php') ?>
 
-
-    <script src="../js/template.js"></script>
     <!-- Jquery Page Js -->
     <script>
-        // project data table
-        $(document).ready(function() {
-            $('#myProjectTable')
-                .addClass('nowrap')
-                .dataTable({
-                    responsive: true,
-                    columnDefs: [{
-                        targets: [-1, -3],
-                        className: 'dt-body-right'
-                    }]
-                });
-        });
         // employees Line Column
         $(document).ready(function() {
             var options = {
@@ -402,7 +246,7 @@ if (!$_SESSION['super_log']) {
                                     echo $jobStat . ',';
                                 } ?> 0]
                     }
-                  
+
                 ],
                 stroke: {
                     width: [0, 4]
@@ -414,11 +258,11 @@ if (!$_SESSION['super_log']) {
                             } ?>],
                 xaxis: {
                     type: 'datetime',
-                    title:{
+                    title: {
                         text: 'Days'
                     }
                 },
-                yaxis: [ {
+                yaxis: [{
                     opposite: false,
                     title: {
                         text: 'Number Of Scans'
@@ -427,32 +271,6 @@ if (!$_SESSION['super_log']) {
             }
             var chart = new ApexCharts(
                 document.querySelector("#apex-chart-line-column"),
-                options
-            );
-
-            chart.render();
-        });
-
-        // employees circle
-        $(document).ready(function() {
-            var options = {
-                chart: {
-                    height: 250,
-                    type: 'radialBar',
-                },
-                colors: ['var(--chart-color1)'],
-                plotOptions: {
-                    radialBar: {
-                        hollow: {
-                            size: '70%',
-                        }
-                    },
-                },
-                series: [70],
-                labels: ['Working'],
-            }
-            var chart = new ApexCharts(
-                document.querySelector("#apex-circle-chart"),
                 options
             );
 

@@ -367,7 +367,7 @@ if (!$_SESSION['super_log']) {
     <script src="assets/bundles/apexcharts.bundle.js"></script>
 
     <!-- Jquery Page Js -->
-    <script src="../js/template.js"></script>
+    <script src="../js/template.js?v=<?php echo time(); ?>"></script>
     <!-- <script src="js/hr.js"></script> -->
     <?php require_once('js/hr.php') ?>
     <!-- Custom Js -->

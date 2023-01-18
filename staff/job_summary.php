@@ -48,7 +48,10 @@ if (!$_SESSION['super_log']) {
                                             <h6 class="mb-0 fw-bold "><?= $activeJobInfo['name'] ?></h6>
                                         </div>
                                         <div class="card-body">
-                                            <div class="ac-line-transparent" id="apex-emplyoeeAnalytics"></div>
+                                            <!-- apex-emplyoeeAnalytics -->
+                                            <!-- apex-chart-line-column -->
+                                            <!-- <div class="ac-line-transparent" id="apex-chart-line-column"></div> -->
+                                            <div class="ac-line-transparent" id="apex-chart-line-column"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -64,7 +67,7 @@ if (!$_SESSION['super_log']) {
                                                         <div class="card-body ">
                                                             <i class="text-primary icofont-bars fs-3"></i>
                                                             <h6 class="mt-3 mb-0 fw-bold small-14">Job Percentage Overall</h6>
-                                                            <span class="text-muted"><?= floor((count(getAllJobEntriesForJobId($activeJobId)) / count(getAllJobsForStaff($_SESSION['staff_id'])) * 100 )) ?>%</span>
+                                                            <span class="text-muted"><?= floor((count(getAllJobEntriesForJobId($activeJobId)) / count(getAllJobsForStaff($_SESSION['staff_id'])) * 100)) ?>%</span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -73,8 +76,8 @@ if (!$_SESSION['super_log']) {
                                                         <div class="card-body ">
                                                             <i class="text-success icofont-check fs-3"></i>
                                                             <h6 class="mt-3 mb-0 fw-bold small-14">Percentage Success</h6>
-                                                            <span class="text-muted"><?= floor((getEntryValidity(getAllJobEntriesForJobId($activeJobId), true) / count(getAllJobEntriesForJobId($activeJobId)) ) * 100 )
-                                                             ?>%</span>
+                                                            <span class="text-muted"><?= floor((getEntryValidity(getAllJobEntriesForJobId($activeJobId), true) / count(getAllJobEntriesForJobId($activeJobId))) * 100)
+                                                                                        ?>%</span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -83,12 +86,12 @@ if (!$_SESSION['super_log']) {
                                                         <div class="card-body ">
                                                             <i class="text-danger icofont-close fs-3"></i>
                                                             <h6 class="mt-3 mb-0 fw-bold small-14">Percentage Negative</h6>
-                                                            <span class="text-muted"><?= floor((getEntryValidity(getAllJobEntriesForJobId($activeJobId), false) / count(getAllJobEntriesForJobId($activeJobId)) ) * 100 )
-                                                             ?>%</span>
+                                                            <span class="text-muted"><?= floor((getEntryValidity(getAllJobEntriesForJobId($activeJobId), false) / count(getAllJobEntriesForJobId($activeJobId))) * 100)
+                                                                                        ?>%</span>
                                                         </div>
                                                     </div>
                                                 </div>
-                                              
+
                                             </div>
                                         </div>
                                     </div>
@@ -363,6 +366,99 @@ if (!$_SESSION['super_log']) {
     <?php require_once('js/hr2.php') ?>
     <!-- Custom Js -->
     <?php require_once('includes/js_imports.php') ?>
+
+
+    <script src="../js/template.js"></script>
+    <!-- Jquery Page Js -->
+    <script>
+        // project data table
+        $(document).ready(function() {
+            $('#myProjectTable')
+                .addClass('nowrap')
+                .dataTable({
+                    responsive: true,
+                    columnDefs: [{
+                        targets: [-1, -3],
+                        className: 'dt-body-right'
+                    }]
+                });
+        });
+        // employees Line Column
+        $(document).ready(function() {
+            var options = {
+                chart: {
+                    height: 350,
+                    type: 'line',
+                    toolbar: {
+                        show: false,
+                    },
+                },
+                colors: ['var(--chart-color1)', 'var(--chart-color2)'],
+                series: [{
+                        name: 'Scans',
+                        type: 'column',
+                        // data: [440, 505, 414, 671, 227, 413, 201, 352, 752, 320, 257, 160]
+                        data: [<?php foreach ($jobStatsAndDates[1] as $jobStat) {
+                                    echo $jobStat . ',';
+                                } ?> 0]
+                    }
+                  
+                ],
+                stroke: {
+                    width: [0, 4]
+                },
+                //labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],    
+                // labels: ['2001', '2002', '2003', '2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012'],
+                labels: [<?php foreach ($jobStatsAndDates[0] as $jobStat) {
+                                echo "'" . $jobStat . "',";
+                            } ?>],
+                xaxis: {
+                    type: 'datetime',
+                    title:{
+                        text: 'Days'
+                    }
+                },
+                yaxis: [ {
+                    opposite: false,
+                    title: {
+                        text: 'Number Of Scans'
+                    }
+                }]
+            }
+            var chart = new ApexCharts(
+                document.querySelector("#apex-chart-line-column"),
+                options
+            );
+
+            chart.render();
+        });
+
+        // employees circle
+        $(document).ready(function() {
+            var options = {
+                chart: {
+                    height: 250,
+                    type: 'radialBar',
+                },
+                colors: ['var(--chart-color1)'],
+                plotOptions: {
+                    radialBar: {
+                        hollow: {
+                            size: '70%',
+                        }
+                    },
+                },
+                series: [70],
+                labels: ['Working'],
+            }
+            var chart = new ApexCharts(
+                document.querySelector("#apex-circle-chart"),
+                options
+            );
+
+            chart.render();
+        });
+    </script>
 
 </body>
 

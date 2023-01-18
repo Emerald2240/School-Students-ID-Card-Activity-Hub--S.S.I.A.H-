@@ -140,6 +140,15 @@ function formatDateFriendlier($date, $format = null)
     return date('d', strtotime($date)) . '/' . date('m', strtotime($date)) . '/' . date('Y', strtotime($date));
 }
 
+function formatDateFriendlierForJsChart($date, $format = null)
+{
+    if (isset($format)) {
+        return date($format, strtotime($date));
+    }
+    return date('m', strtotime($date)) . '/' . date('d', strtotime($date)) . '/' . date('Y', strtotime($date));
+    // return date('m', strtotime($date));
+}
+
 function formatDateHourAndMinute($date, $format = null)
 {
     if (isset($format)) {
@@ -392,4 +401,61 @@ function getAllStudentsScannedPerJobId($jobId)
     }
 
     return $allStudents;
+}
+
+/**
+ * Gets a particular jobs entries and for each day it has been used
+ * 
+ * @param string $jobId
+ * The job whose entries are being looked for
+ * @param string $case
+ * [optional]
+ * 
+ * @return array
+ * Returns a multi dimensional array. 0 for the days; 1 for the number entries for each day.
+ */
+function divideJobEntriesIntoCountsPerDay($jobId)
+{
+    $allJobEntries = getAllJobEntriesForJobId($jobId);
+    if (isset($allJobEntries)) {
+
+        $jobEntriesPerDay = [];
+        $uniqueDatesPerJobEntry = [];
+        $combinedValues = [];
+
+        //gets all the unique dates
+        foreach ($allJobEntries as $jobEntry) {
+            if (!searchArray($uniqueDatesPerJobEntry, formatDateFriendlierForJsChart($jobEntry['date_updated']))) {
+                array_push($uniqueDatesPerJobEntry, formatDateFriendlierForJsChart($jobEntry['date_updated']));
+            }
+        }
+
+        //gets all entries for each of the unique days
+        foreach ($uniqueDatesPerJobEntry as $date) {
+            $totalEntriesPerDay = 0;
+            foreach ($allJobEntries as $jobEntry) {
+                if ($date == formatDateFriendlierForJsChart($jobEntry['date_updated'])) {
+                    $totalEntriesPerDay++;
+                }
+            }
+            array_push($jobEntriesPerDay, $totalEntriesPerDay);
+        }
+
+        array_push($combinedValues, $uniqueDatesPerJobEntry);
+        array_push($combinedValues, $jobEntriesPerDay);
+
+        return $combinedValues;
+    } else {
+        return false;
+    }
+}
+
+function searchArray($array, $needle)
+{
+    foreach ($array as $value) {
+        if ($value == $needle) {
+            return true;
+        }
+    }
+    return false;
 }

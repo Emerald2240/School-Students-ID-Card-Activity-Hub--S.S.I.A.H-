@@ -28,4 +28,6 @@ echo '<pre>';
 
 // print_r(getLatestJobEntryFromStudentForStaff(8, 1));
 
-print_r(getActiveJobForStaff(1));
+// print_r(getActiveJobForStaff(1));
+
+print_r(divideJobEntriesIntoCountsPerDay(1));

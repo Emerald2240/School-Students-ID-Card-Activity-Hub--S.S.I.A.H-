@@ -1,3 +1,11 @@
+<?php
+$myMachine = getStaffsMachine($_SESSION['staff_id']);
+$activeJobId = $myMachine['active_job_id'];
+$activeJobInfo = getJobFromId($activeJobId);
+
+$jobStatsAndDates = divideJobEntriesIntoCountsPerDay($activeJobId)
+
+?>
 <script>
     if (typeof jQuery === "undefined") {
         throw new Error("jQuery plugins need to be before this file");
@@ -28,11 +36,7 @@
                     show: true,
                 },
                 colors: ['var(--chart-color4)', 'var(--chart-color3)'],
-                <?php
-                $myMachine = getStaffsMachine($_SESSION['staff_id']);
-                $activeJobId = $myMachine['active_job_id'];
-                $activeJobInfo = getJobFromId($activeJobId);
-                ?>
+
                 series: [<?= getGenderCount(getAllStudentsScannedPerJobId($activeJobId), 'Male') ?>, <?= getGenderCount(getAllStudentsScannedPerJobId($activeJobId), 'Female') ?>],
                 responsive: [{
                     breakpoint: 480,
@@ -50,16 +54,21 @@
             chart.render();
         });
 
+
+
         // Employees Analytics
         $(document).ready(function() {
             var options = {
                 series: [{
-                    name: 'Available',
-                    data: [4, 19, 7, 35, 14, 27, 9, 12],
+                    name: 'Scans',
+                    // data: [4, 19, 7, 35, 14, 27, 9, 12],
+                    data: [<?php foreach($jobStatsAndDates[1] as $jobStat){
+                        echo $jobStat.',';
+                    } ?> 0],
                 }],
                 chart: {
                     height: 140,
-                    type: 'line',
+                    type: 'bar',
                     toolbar: {
                         show: false,
                     }
@@ -84,7 +93,10 @@
                 },
                 xaxis: {
                     type: 'datetime',
-                    categories: ['1/11/2021', '2/11/2021', '3/11/2021', '4/11/2021', '5/11/2021', '6/11/2021', '7/11/2021', '8/11/2021'],
+                    // categories: ['1/11/2021', '2/26/2023', '3/11/2021', '4/11/2021', '5/11/2021', '6/11/2021', '7/11/2021', '8/11/2021'],
+                    categories: [<?php foreach($jobStatsAndDates[0] as $jobStat){
+                        echo "'".$jobStat."',";
+                    } ?>],
                     tickAmount: 10,
                     labels: {
                         formatter: function(value, timestamp, opts) {

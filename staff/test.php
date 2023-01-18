@@ -30,4 +30,12 @@ echo '<pre>';
 
 // print_r(getActiveJobForStaff(1));
 
-print_r(divideJobEntriesIntoCountsPerDay(1));
+// print_r(divideJobEntriesIntoCountsPerDay(1));
+
+// print_r(divideStaffAttendanceTasksIntoTwelveMonths(1));
+
+// print_r(divideStaffDepartmentalFeeTasksIntoTwelveMonths(1));
+
+// print_r(divideStaffFacultyFeeTasksIntoTwelveMonths(1));
+
+print_r(divideStaffSchoolFeeTasksIntoTwelveMonths(1));

@@ -26,7 +26,7 @@
                 <ul class="collapse" id="dashboard-Components">
                     <!-- active can be added here -->
                     <li><a class="ms-link" href="index"> <span>Summary</span></a></li>
-                    <li><a class="ms-link" onclick="showAlert('Coming Soon', 'Feature still in construction')"> <span>Data Visualisation</span></a></li>
+                    <!-- <li><a class="ms-link" onclick="showAlert('Coming Soon', 'Feature still in construction')"> <span>Data Visualisation</span></a></li> -->
                 </ul>
             </li>
             <li class="collapsed">

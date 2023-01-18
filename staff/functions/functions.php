@@ -149,6 +149,15 @@ function formatDateFriendlierForJsChart($date, $format = null)
     // return date('m', strtotime($date));
 }
 
+function formatDateFriendlierForJsChartByMonth($date, $format = null)
+{
+    if (isset($format)) {
+        return date($format, strtotime($date));
+    }
+    // return date('m', strtotime($date)) . '/' . date('d', strtotime($date)) . '/' . date('Y', strtotime($date));
+    return date('M', strtotime($date));
+}
+
 function formatDateHourAndMinute($date, $format = null)
 {
     if (isset($format)) {
@@ -414,9 +423,9 @@ function getAllStudentsScannedPerJobId($jobId)
  * @return array
  * Returns a multi dimensional array. 0 for the days; 1 for the number entries for each day.
  */
-function divideJobEntriesIntoCountsPerDay($jobId)
+function divideJobEntriesIntoCountsPerDay($staffId)
 {
-    $allJobEntries = getAllJobEntriesForJobId($jobId);
+    $allJobEntries = getAllJobEntriesForJobId($staffId);
     if (isset($allJobEntries)) {
 
         $jobEntriesPerDay = [];
@@ -445,6 +454,161 @@ function divideJobEntriesIntoCountsPerDay($jobId)
         array_push($combinedValues, $jobEntriesPerDay);
 
         return $combinedValues;
+    } else {
+        return false;
+    }
+}
+
+/**
+ * Gets a particular jobs entries and for each day it has been used
+ * 
+ * @param string $jobId
+ * The job whose entries are being looked for
+ * @param string $case
+ * [optional]
+ * 
+ * @return array
+ * Returns a multi dimensional array. 0 for the days; 1 for the number entries for each day.
+ */
+function divideJobEntriesIntoCountsPerDayForStaff($jobId)
+{
+    $allJobEntries = getAllJobEntriesForStaff($jobId);
+    if (isset($allJobEntries)) {
+
+        $jobEntriesPerDay = [];
+        $uniqueDatesPerJobEntry = [];
+        $combinedValues = [];
+
+        //gets all the unique dates
+        foreach ($allJobEntries as $jobEntry) {
+            if (!searchArray($uniqueDatesPerJobEntry, formatDateFriendlierForJsChartByMonth($jobEntry['date_updated']))) {
+                array_push($uniqueDatesPerJobEntry, formatDateFriendlierForJsChartByMonth($jobEntry['date_updated']));
+            }
+        }
+
+        //gets all entries for each of the unique days
+        foreach ($uniqueDatesPerJobEntry as $date) {
+            $totalEntriesPerDay = 0;
+            foreach ($allJobEntries as $jobEntry) {
+                if ($date == formatDateFriendlierForJsChartByMonth($jobEntry['date_updated'])) {
+                    $totalEntriesPerDay++;
+                }
+            }
+            array_push($jobEntriesPerDay, $totalEntriesPerDay);
+        }
+
+        array_push($combinedValues, $uniqueDatesPerJobEntry);
+        array_push($combinedValues, $jobEntriesPerDay);
+
+        return $combinedValues;
+    } else {
+        return false;
+    }
+}
+
+function divideStaffAttendanceTasksIntoTwelveMonths($staffId)
+{
+    $attendanceTasks = getAllAttendanceTasksForStaff($staffId);
+    $months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+    if (isset($attendanceTasks)) {
+
+        $tasksPerMonth = [];
+
+        //gets all the unique dates
+        foreach ($months as $month) {
+            $count = 0;
+            foreach ($attendanceTasks as $task) {
+                // echo formatDateFriendlierForJsChartByMonth($task['date_updated']);
+                // echo '<br>';
+                if ($month == formatDateFriendlierForJsChartByMonth($task['date_updated'])) {
+                    $count++;
+                }
+            }
+            array_push($tasksPerMonth, $count);
+        }
+        return $tasksPerMonth;
+    } else {
+        return false;
+    }
+}
+
+function divideStaffSchoolFeeTasksIntoTwelveMonths($staffId)
+{
+    $attendanceTasks = getAllSchoolFeeTasksForStaff($staffId);
+    $months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+    if (isset($attendanceTasks)) {
+
+        $tasksPerMonth = [];
+
+        //gets all the unique dates
+        foreach ($months as $month) {
+            $count = 0;
+            foreach ($attendanceTasks as $task) {
+                // echo formatDateFriendlierForJsChartByMonth($task['date_updated']);
+                // echo '<br>';
+                if ($month == formatDateFriendlierForJsChartByMonth($task['date_updated'])) {
+                    $count++;
+                }
+            }
+            array_push($tasksPerMonth, $count);
+        }
+        return $tasksPerMonth;
+    } else {
+        return false;
+    }
+}
+
+function divideStaffDepartmentalFeeTasksIntoTwelveMonths($staffId)
+{
+    $attendanceTasks = getAllDepartmentalFeeTasksForStaff($staffId);
+    $months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+    if (isset($attendanceTasks)) {
+
+        $tasksPerMonth = [];
+
+        //gets all the unique dates
+        foreach ($months as $month) {
+            $count = 0;
+            foreach ($attendanceTasks as $task) {
+                // echo formatDateFriendlierForJsChartByMonth($task['date_updated']);
+                // echo '<br>';
+                if ($month == formatDateFriendlierForJsChartByMonth($task['date_updated'])) {
+                    $count++;
+                }
+            }
+            array_push($tasksPerMonth, $count);
+        }
+        return $tasksPerMonth;
+    } else {
+        return false;
+    }
+}
+
+function divideStaffFacultyFeeTasksIntoTwelveMonths($staffId)
+{
+    $attendanceTasks = getAllFacultyFeeTasksForStaff($staffId);
+    $months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+    if (isset($attendanceTasks)) {
+
+        $tasksPerMonth = [];
+
+        //gets all the unique dates
+        foreach ($months as $month) {
+            $count = 0;
+            foreach ($attendanceTasks as $task) {
+                // echo formatDateFriendlierForJsChartByMonth($task['date_updated']);
+                // echo '<br>';
+                if ($month == formatDateFriendlierForJsChartByMonth($task['date_updated'])) {
+                    $count++;
+                }
+            }
+            array_push($tasksPerMonth, $count);
+        }
+        return $tasksPerMonth;
     } else {
         return false;
     }

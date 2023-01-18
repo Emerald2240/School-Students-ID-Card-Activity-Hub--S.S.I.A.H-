@@ -59,6 +59,7 @@ if (!$_SESSION['super_log']) {
                                                 <th>Task</th>
                                                 <th>Created Date</th>
                                                 <th>Status</th>
+                                                <th>Scans</th>
                                                 <th>Actions</th>
                                             </tr>
                                         </thead>
@@ -68,6 +69,13 @@ if (!$_SESSION['super_log']) {
                                             $activeJob = getActiveJobForStaff($_SESSION['staff_id']);
                                             foreach ($jobs as $job) {
                                                 $task = getTaskFromId($job['task_id']);
+                                                $jobScans = getAllJobEntriesForJobId($job['id']);
+                                                if (!$jobScans) {
+                                                    $jobScans = 0;
+                                                } else {
+                                                    $jobScans = count($jobScans);
+                                                }
+
                                             ?>
                                                 <tr>
                                                     <td>
@@ -91,8 +99,11 @@ if (!$_SESSION['super_log']) {
                                                         <?php } ?>
                                                     </td>
                                                     <td>
+                                                        <?= $jobScans ?>
+                                                    </td>
+                                                    <td>
                                                         <div class="btn-group" role="group" aria-label="Basic outlined example">
-                                                            <!-- <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#edittickit"><i class="icofont-edit text-success"></i></button> -->
+                                                            <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#edittickit"><i class="icofont-edit text-success"></i></button>
                                                             <!-- <a href="" type="button" onclick="sweetAlertConfirmation(`functions/deleteJob?id=<?= $job['id'] ?>`)" class="btn btn-outline-secondary deleterow"><i class="icofont-ui-delete text-danger"></i></a> -->
                                                             <button type="button" href="" onclick="sweetAlertConfirmation(`functions/deleteJob?id=<?= $job['id'] ?>`)" class="btn btn-outline-secondary"><i class="icofont-ui-delete text-danger"></i></button>
                                                             <a href="functions/downloadJobData?id=<?= $job['id'] ?>" type="button" class="btn btn-outline-secondary"><i class="icofont-download text-primary"></i></a>
@@ -472,7 +483,6 @@ if (!$_SESSION['super_log']) {
             });
         });
     </script>
-    <?php require_once('includes/js_imports.php') ?>
 
     <!-- Custom Js -->
     <?php require_once('includes/js_imports.php') ?>

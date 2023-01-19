@@ -55,7 +55,7 @@ if (!$machineInfo) {
                                 </div>
                                 <!-- Image block -->
                                 <div class="">
-                                    <img src="assets/images/machine.svg" alt="login-img">
+                                    <!-- <img src="assets/images/machine.svg" alt="login-img"> -->
                                 </div>
                             </div>
                         </div>

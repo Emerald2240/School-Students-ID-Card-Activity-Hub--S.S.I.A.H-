@@ -66,14 +66,14 @@ if (isset($_GET['job_id'])) {
                             $studentName =  $studentInfo['first_name'] . " " . $studentInfo['last_name'];
                             echo '["' . $studentInfo['reg_no'] . '",' . '"' . $studentName . '",' . '"' . $jobEntry['response'] . '",' . '"' . formatDateFriendlier($jobEntry['date_updated']) . '",' . '"' . formatDateHourAndMinute($jobEntry['date_updated']) . '"],';
                         }
-                        echo '["", "", "", ""]]';
+                        echo '["", "", "", "", ""]]';
 
                         ?>;
 
             // console.log(data);
 
             // var dataAsArray = convertJsonToArray(data);
-            console.log(data);
+            // console.log(data);
 
             // (C2) CREATE NEW EXCEL "FILE"
             var workbook = XLSX.utils.book_new(),

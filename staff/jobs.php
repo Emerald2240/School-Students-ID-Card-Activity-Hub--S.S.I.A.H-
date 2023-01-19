@@ -113,7 +113,7 @@ if (!$_SESSION['super_log']) {
                                                             <button type="button" class="btn btn-outline-secondary" onclick="setEditJobModalValues('<?= $job['name'] ?>', <?= $job['id'] ?>)" data-bs-toggle="modal" data-bs-target="#edittickit"><i class="icofont-edit text-success"></i></button>
                                                             <!-- <a href="" type="button" onclick="sweetAlertConfirmation(`functions/deleteJob?id=<?= $job['id'] ?>`)" class="btn btn-outline-secondary deleterow"><i class="icofont-ui-delete text-danger"></i></a> -->
                                                             <button type="button" href="" onclick="sweetAlertConfirmation(`functions/deleteJob?id=<?= $job['id'] ?>`)" class="btn btn-outline-secondary"><i class="icofont-ui-delete text-danger"></i></button>
-                                                            <a href="functions/downloadJobData?id=<?= $job['id'] ?>" type="button" class="btn btn-outline-secondary"><i class="icofont-download text-primary"></i></a>
+                                                            <a href="download-excel?job_id=<?= $job['id'] ?>" type="button" class="btn btn-outline-secondary"><i class="icofont-download text-primary"></i></a>
 
                                                         </div>
                                                     </td>
@@ -251,6 +251,8 @@ if (!$_SESSION['super_log']) {
 
     <!-- Custom Js -->
     <?php require_once('includes/js_imports.php') ?>
+
+   
 
 </body>
 

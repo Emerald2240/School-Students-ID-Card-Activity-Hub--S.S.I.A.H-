@@ -120,6 +120,18 @@ function getJobFromId($jobId)
     }
 }
 
+function getStudentFromId($studentId)
+{
+    global $db_handle;
+
+    $result = $db_handle->selectAllWhere('studentss', 'id', $studentId);
+    if (isset($result)) {
+        return $result[0];
+    } else {
+        return false;
+    }
+}
+
 function getTaskFromId($taskId)
 {
     global $db_handle;
@@ -163,7 +175,7 @@ function formatDateHourAndMinute($date, $format = null)
     if (isset($format)) {
         return date($format, strtotime($date));
     }
-    return date('h', strtotime($date)) . ':' . date('i', strtotime($date)); //. ':' . date('s', strtotime($date));
+    return date('H', strtotime($date)) . ':' . date('i', strtotime($date)); //. ':' . date('s', strtotime($date));
 }
 
 function shortenText($text, $length)

@@ -386,6 +386,22 @@ function activateJob($jobId, $machineId)
     }
 }
 
+function updateJob($jobId, $jobTitle, $jobTaskId)
+{
+    global $db_handle;
+    //$response = [];
+    $query = "UPDATE `jobs` SET 
+    `name` = '$jobTitle',
+    `task_id` = $jobTaskId
+     WHERE `jobs`.`id` = $jobId";
+
+    if ($db_handle->runQueryWithoutResponse($query)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 function getAllJobEntriesForJobId($jobId)
 {
     global $db_handle;

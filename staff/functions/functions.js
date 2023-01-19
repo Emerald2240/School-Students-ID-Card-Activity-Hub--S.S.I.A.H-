@@ -52,11 +52,24 @@ function sweetAlertConfirmation(link) {
     })
         .then((willDelete) => {
             if (willDelete) {
-              window.location = 
-              (link);
+                window.location =
+                    (link);
             } else {
                 //swal("Your imaginary file is safe!");
             }
         });
 
+}
+
+function setEditJobModalValues(title, id) {
+    // setTimeout(function () {
+        let titleInput = document.getElementById('job_title_modal');
+        let jobId = document.getElementById('job_id_modal');
+
+        // console.log(titleInput);
+        // console.log(jobId);
+
+        titleInput.value = title;
+        jobId.value = id;
+    // }, 2000);
 }

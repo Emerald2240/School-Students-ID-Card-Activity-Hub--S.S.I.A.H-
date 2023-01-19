@@ -61,15 +61,45 @@ function sweetAlertConfirmation(link) {
 
 }
 
+function sweetAlertDownloadConfirmation(link, link2) {
+
+    swal({
+        title: "Choose File Format",
+        icon: "info",
+        buttons: {
+            Excel: {
+                text: "Excel"
+            },
+            CSV: {
+                text: "CSV"
+            }
+
+        }
+
+    })
+        .then((clicked) => {
+            if (clicked == "Excel") {
+                window.location = (link);
+            }
+            if (clicked == "CSV") {
+                //swal("Your imaginary file is safe!");
+                window.location = (link2);
+            } else {
+
+            }
+        });
+
+}
+
 function setEditJobModalValues(title, id) {
     // setTimeout(function () {
-        let titleInput = document.getElementById('job_title_modal');
-        let jobId = document.getElementById('job_id_modal');
+    let titleInput = document.getElementById('job_title_modal');
+    let jobId = document.getElementById('job_id_modal');
 
-        // console.log(titleInput);
-        // console.log(jobId);
+    // console.log(titleInput);
+    // console.log(jobId);
 
-        titleInput.value = title;
-        jobId.value = id;
+    titleInput.value = title;
+    jobId.value = id;
     // }, 2000);
 }

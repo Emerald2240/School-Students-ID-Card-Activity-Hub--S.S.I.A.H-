@@ -5,6 +5,7 @@ require_once('functions/functions.php');
 if (!$_SESSION['super_log']) {
     gotoPage('signin');
 }
+$myMachine = getStaffsMachine($_SESSION['staff_id']);
 ?>
 <!doctype html>
 <html class="no-js" lang="en" dir="ltr">
@@ -42,7 +43,11 @@ if (!$_SESSION['super_log']) {
                             <div class="card-header py-3 no-bg bg-transparent d-flex align-items-center px-0 justify-content-between border-bottom flex-wrap">
                                 <h3 class="fw-bold mb-0">My Jobs</h3>
                                 <div class="col-auto d-flex w-sm-100">
-                                    <button type="button" class="btn btn-dark btn-set-task w-sm-100" data-bs-toggle="modal" data-bs-target="#tickadd"><i class="icofont-plus-circle me-2 fs-6"></i>Create Job</button>
+                                    <?php
+                                    if ($myMachine) {
+                                    ?>
+                                        <button type="button" class="btn btn-dark btn-set-task w-sm-100" data-bs-toggle="modal" data-bs-target="#tickadd"><i class="icofont-plus-circle me-2 fs-6"></i>Create Job</button>
+                                    <?php } ?>
                                 </div>
                             </div>
                         </div>
@@ -99,11 +104,14 @@ if (!$_SESSION['super_log']) {
                                                     </td>
                                                     <td>
                                                         <?php
-                                                        if ($job['id'] == $activeJob) { ?>
-                                                            <span class="badge bg-danger">Active</span>
-                                                        <?php } else { ?>
-                                                            <a href="functions/activateJob?id=<?= $job['id'] ?>"><span class="badge bg-success">Waiting</span></a>
-                                                        <?php } ?>
+                                                        if ($myMachine) {
+                                                            if ($job['id'] == $activeJob) { ?>
+                                                                <span class="badge bg-danger">Active</span>
+                                                            <?php } else { ?>
+                                                                <a href="functions/activateJob?id=<?= $job['id'] ?>"><span class="badge bg-success">Waiting</span></a>
+                                                        <?php }
+                                                        } ?>
+
                                                     </td>
                                                     <td>
                                                         <?= $jobScans ?>

@@ -1,0 +1,14 @@
+[
+    {
+        "course_id": 1,
+        "course_credits": 1,
+        "course_level": 3,
+        "year_taken": 2019
+    },
+    {
+        "course_id": 5,
+        "course_credits": 2,
+        "course_level": 1,
+        "year_taken": 2019
+    }
+]

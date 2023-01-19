@@ -146,7 +146,12 @@
                             </div>
                             <div class="list-group m-2 ">
                                 <a href="task.html" class="list-group-item list-group-item-action border-0 "><i class="icofont-tasks fs-5 me-3"></i>My Jobs</a>
-                                <a href="jobs" class="list-group-item list-group-item-action border-0 "><i class="icofont-ui-user-group fs-6 me-3"></i>My Machine</a>
+                                <?php
+                                $myMachine = getStaffsMachine($_SESSION['staff_id']);
+                                if ($myMachine) {
+                                ?>
+                                    <a href="jobs" class="list-group-item list-group-item-action border-0 "><i class="icofont-ui-user-group fs-6 me-3"></i>My Machine</a>
+                                <?php } ?>
                                 <a href="ui-elements/auth-signin.html" class="list-group-item list-group-item-action border-0 "><i class="icofont-logout fs-6 me-3"></i>Signout</a>
 
                             </div>

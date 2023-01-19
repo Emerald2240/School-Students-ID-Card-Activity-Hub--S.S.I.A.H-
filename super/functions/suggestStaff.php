@@ -22,7 +22,7 @@ switch ($_POST) {
 
             $orderby = " ORDER BY id asc";
             //echo $queryCondition;
-            $query = "SELECT * FROM lecturers " . $queryCondition . $orderby . " LIMIT 0,6";
+            $query = "SELECT * FROM staff " . $queryCondition . $orderby . " LIMIT 0,6";
             $result = $db_handle->runQuery($query);
             if ($result) { ?>
                 <?php
@@ -30,7 +30,7 @@ switch ($_POST) {
                     $fullName = $lecturer['first_name'] ." ".$lecturer['last_name']." | ".$lecturer['email']." | ".$lecturer['title']. " [" . $lecturer['staff_id_number'].']';
                     $email = $lecturer['email']
                 ?>
-                    <li onclick='selectSuggestion("<?= $email ?>","suggestion_list1", "lecturer_search_input","assignToLecturerButton")' class="suggestion_item"><?= $fullName ?></li>
+                    <li onclick='selectSuggestion("<?= $email ?>","suggestion_list1", "staff_search_input","assignToStaffButton")' class="suggestion_item"><?= $fullName ?></li>
                 <?php } ?>
 <?php }
         }

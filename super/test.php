@@ -17,3 +17,25 @@ require_once('functions/functions.php');
 // if (assignCourseToLecturer(1, 1)) {
 //         echo 'Lecturer assigned successfully';
 //     }
+
+
+// cleanWaitingCardIdFile('letsgo');
+
+// echo getWaitingCardId('letsgo');
+
+$nullStaff = getStaffInfoWithEmail('nullvoid@mail.com');
+// var_dump($nullStaff);
+// echo '<hr>';
+$myJobs = getAllJobsForStaff($nullStaff['id']);
+// var_dump($myJobs);
+// echo '<hr>';
+$myMachine = getStaffsMachine($nullStaff['id']);
+// var_dump($myMachine);
+// gotoPage('active-courses');
+$waitingCard = getValidWaitingCardId($myMachine['name']);
+
+if($waitingCard){
+    echo $waitingCard;
+}else{
+    echo 'no valid card found';
+}

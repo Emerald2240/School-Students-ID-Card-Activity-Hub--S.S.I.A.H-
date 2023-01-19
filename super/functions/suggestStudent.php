@@ -30,7 +30,7 @@ switch ($_POST) {
                     $fullName = $student['first_name'] . " " . $student['last_name'] . " | " . $student['email'] . " | " . $student['phone'] . " [" . $student['reg_no'] . ']';
                     $email = $student['email']
                 ?>
-                    <li onclick='selectSuggestion("<?= $email ?>","suggestion_list1", "student_search_input","updateStudentButton")' class="suggestion_item"><?= $fullName ?></li>
+                    <li onclick='selectSuggestion("<?= $email ?>","suggestion_list1", "student_search_input","assignToStudentButton")' class="suggestion_item"><?= $fullName ?></li>
                 <?php } ?>
 <?php }
         }

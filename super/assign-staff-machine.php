@@ -6,7 +6,7 @@ if (!isset($_SESSION['ultra_log'])) {
     gotoPage("../index");
 }
 
-// gotoPage('active-courses');
+// gotoPage('active-Machines');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,20 +26,20 @@ if (!isset($_SESSION['ultra_log'])) {
     </div>
 
     <div>
-        <form action="functions/assignCourseToLecturer.php" method="POST">
+        <form action="functions/assignMachineToStaff.php" method="POST">
             <div class="p-1 form-control">
-                <label>Lecturer</label><br>
-                <input name="lecturer_email" onkeyup='simpleAsyncSearch("functions/suggestLecturer", "lecturer_search_input", "suggestion_list1","assignToLecturerButton")' id="lecturer_search_input" type="text" placeholder="**Engr Ozor **Engrozor@gmail.com **32234234" required>
+                <label>Staff</label><br>
+                <input name="staff_email" onkeyup='simpleAsyncSearch("functions/suggestStaff", "staff_search_input", "suggestion_list1","assignToStaffButton")' id="staff_search_input" type="text" placeholder="**Engr Ozor **Engrozor@gmail.com **32234234" required>
                 <ul id="suggestion_list1">
                 </ul>
             </div>
             <div class="p-1 form-control">
-                <label>Course</label><br>
-                <input name="course_name" onkeyup='simpleAsyncSearch("functions/suggestCourse", "course_search_input", "suggestion_list2","assignToLecturerButton")' id="course_search_input" type="text" placeholder="**CEE123  **Computer Engineering in Nigeria" required>
+                <label>Machine</label><br>
+                <input name="machine_name" onkeyup='simpleAsyncSearch("functions/suggestMachine", "machine_search_input", "suggestion_list2","assignToStaffButton")' id="machine_search_input" type="text" placeholder="**23jan1690515  **The Prototype" required>
                 <ul id="suggestion_list2">
                 </ul>
             </div>
-            <input type="submit" disabled id="assignToLecturerButton" value="Assign">
+            <input type="submit" disabled id="assignToStaffButton" value="Assign">
 
         </form>
     </div>

@@ -144,6 +144,8 @@ function assignCourseToLecturer($lecturerId, $courseId)
     }
   }
 
+
+
   array_push($lecturerCoursesHandling, $newCourseJsonified);
   $lecturerCoursesHandling = json_encode($lecturerCoursesHandling);
 
@@ -159,6 +161,48 @@ function assignCourseToLecturer($lecturerId, $courseId)
     //createLog('Failed', 'updateCourseSession');
     return false;
   }
+}
+
+function assignMachineToStaff($staffId, $machineId)
+{
+  global $db_handle;
+
+  $query = "UPDATE `machines` SET 
+  `owner_id` = $staffId
+   WHERE `machines`.`id` = $machineId";
+
+  if ($db_handle->runQueryWithoutResponse($query)) {
+    //createLog('Success', 'updateCourseSession');
+    return true;
+  } else {
+    //createLog('Failed', 'updateCourseSession');
+    return false;
+  }
+}
+
+function assignCardToStudent($studentId, $cardId)
+{
+  global $db_handle;
+
+  $query = "UPDATE `students` SET 
+  `card_id` = '$cardId'
+   WHERE `students`.`id` = $studentId";
+
+  if ($db_handle->runQueryWithoutResponse($query)) {
+    //createLog('Success', 'updateCourseSession');
+    $superMachine = getSuperMachineInfo();
+    cleanWaitingCardIdFile($superMachine['name'], true);
+    return true;
+  } else {
+    //createLog('Failed', 'updateCourseSession');
+    return false;
+  }
+}
+
+function getSuperMachineInfo()
+{
+  $nullStaff = getStaffInfoWithEmail('nullvoid@mail.com');
+  return getStaffsMachine($nullStaff['id']);
 }
 
 function getLecturerId($lecturerName)
@@ -213,6 +257,34 @@ function getLecturerInfoWithEmail($email)
   }
 }
 
+function getStaffInfoWithEmail($email)
+{
+  global $db_handle;
+
+  $result = $db_handle->selectAllWhere('staff', 'email', $email);
+  if (isset($result)) {
+    // //createLog('Success', 'getLecturerName');
+    return $result[0];
+  } else {
+    // //createLog('Failed', 'getLecturerName');
+    return false;
+  }
+}
+
+function getStudentInfoWithEmail($email)
+{
+  global $db_handle;
+
+  $result = $db_handle->selectAllWhere('students', 'email', $email);
+  if (isset($result)) {
+    // //createLog('Success', 'getLecturerName');
+    return $result[0];
+  } else {
+    // //createLog('Failed', 'getLecturerName');
+    return false;
+  }
+}
+
 function getDepartmentId($departmentName)
 {
 
@@ -243,6 +315,18 @@ function getCourseInfoWithName($course_name)
   global $db_handle;
 
   $result = $db_handle->selectAllWhere('courses', 'course_name', $course_name);
+  if (isset($result)) {
+    return $result[0];
+  } else {
+    return false;
+  }
+}
+
+function getMachineInfoWithName($machine_name)
+{
+  global $db_handle;
+
+  $result = $db_handle->selectAllWhere('machines', 'name', $machine_name);
   if (isset($result)) {
     return $result[0];
   } else {
@@ -282,7 +366,7 @@ function readWaitingCardPerMachineFile($machineId, $cardId)
 {
   $fileContent = "";
   if (isset($machineId) && isset($cardId)) {
-    $myfile = fopen($machineId . 'Waiting.txt', "w") or die("0");
+    $myfile = fopen($machineId . 'Waiting.txt', "r") or die("0");
     $fileContent = fread($myfile, filesize($machineId . 'waiting.txt'));
     fclose($myfile);
 
@@ -290,4 +374,95 @@ function readWaitingCardPerMachineFile($machineId, $cardId)
   }
 
   return false;
+}
+
+function assignSuperJobToMachine($machineId, $jobId)
+{
+  global $db_handle;
+
+  $query = "UPDATE `machines` SET 
+  `active_job_id` = $jobId
+   WHERE `machines`.`id` = $machineId";
+
+  if ($db_handle->runQueryWithoutResponse($query)) {
+    //createLog('Success', 'updateCourseSession');
+    return true;
+  } else {
+    //createLog('Failed', 'updateCourseSession');
+    return false;
+  }
+}
+
+function getStaffsMachine($staffId)
+{
+  global $db_handle;
+
+  $result = $db_handle->selectAllWhere('machines', 'owner_id', $staffId);
+  if (isset($result)) {
+    return $result[0];
+  } else {
+    return false;
+  }
+}
+
+function getAllJobsForStaff($staffId)
+{
+  global $db_handle;
+  $result = $db_handle->selectAllWhere('jobs', 'staff_id', $staffId);
+  if (isset($result)) {
+    return $result;
+  } else {
+    return false;
+  }
+}
+
+
+
+function getWaitingCardId($machineName)
+{
+  $fileContent = "";
+  $myfile = fopen($machineName . 'Waiting.txt', "r");
+  $fileContent = fread($myfile, filesize($machineName . 'Waiting.txt'));
+  fclose($myfile);
+
+  return $fileContent;
+}
+
+function cleanWaitingCardIdFile($machine_name, $insideFunctionsFolder = null)
+{
+  if (isset($insideFunctionsFolder)) {
+    $myfile = fopen("../" . $machine_name . 'Waiting.txt', "w");
+  } else {
+    $myfile = fopen($machine_name . 'Waiting.txt', "w");
+  }
+  $txt = '#';
+  fwrite($myfile, $txt);
+  fclose($myfile);
+  return true;
+}
+
+function getValidWaitingCardId($machineName)
+{
+  $currentWaitingId = getWaitingCardId($machineName);
+
+  if ($currentWaitingId != '#') {
+    if (!hasCardBeenUsed($currentWaitingId)) {
+      return $currentWaitingId;
+    } else {
+      return false;
+    }
+  } else {
+    return false;
+  }
+}
+
+function hasCardBeenUsed($cardId)
+{
+  global $db_handle;
+  $result = $db_handle->selectAllWhere('students', 'card_id', $cardId);
+  if (isset($result)) {
+    return true;
+  } else {
+    return false;
+  }
 }

@@ -6,7 +6,23 @@ if (!isset($_SESSION['ultra_log'])) {
     gotoPage("../index");
 }
 
+$nullStaff = getStaffInfoWithEmail('nullvoid@mail.com');
+// var_dump($nullStaff);
+// echo '<hr>';
+$myJobs = getAllJobsForStaff($nullStaff['id']);
+// var_dump($myJobs);
+// echo '<hr>';
+$myMachine = getStaffsMachine($nullStaff['id']);
+// var_dump($myMachine);
 // gotoPage('active-courses');
+if (!$myMachine) {
+    die('Machine not assigned to Super Staff. Assign it then come back.');
+}
+
+$waitingCard = getValidWaitingCardId($myMachine['name']);
+if (!$waitingCard) {
+    $waitingCard = '#';
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,25 +37,26 @@ if (!isset($_SESSION['ultra_log'])) {
 
 <body>
     <div class="header">
-        <h1>Assign Machine To Staff</h1>
+        <h1>Assign Card To Student</h1>
         <strong>"Perform your task and i shall know you. Perform your task and your genius shall befriend the more."<br> ~Ogwo David Emenike</strong>
     </div>
 
+
     <div>
-        <form action="functions/assignCourseToLecturer.php" method="POST">
+        <form action="functions/assignCardToStudent.php" method="POST">
             <div class="p-1 form-control">
-                <label>Lecturer</label><br>
-                <input name="lecturer_email" onkeyup='simpleAsyncSearch("functions/suggestLecturer", "lecturer_search_input", "suggestion_list1","assignToLecturerButton")' id="lecturer_search_input" type="text" placeholder="**Engr Ozor **Engrozor@gmail.com **32234234" required>
+                <label>Student</label><br>
+                <input name="student_email" onkeyup='simpleAsyncSearch("functions/suggestStudent", "student_search_input", "suggestion_list1","assignToStudentButton")' id="student_search_input" type="text" placeholder="**Orji Michael **orjimichael4886@gmail.com **32234234" required>
                 <ul id="suggestion_list1">
                 </ul>
             </div>
             <div class="p-1 form-control">
-                <label>Course</label><br>
-                <input name="course_name" onkeyup='simpleAsyncSearch("functions/suggestCourse", "course_search_input", "suggestion_list2","assignToLecturerButton")' id="course_search_input" type="text" placeholder="**CEE123  **Computer Engineering in Nigeria" required>
+                <label>Free Card ID</label><br>
+                <input name="card_id" value="<?= $waitingCard ?>" readonly type="text" placeholder="**#532fhis2  **fse234fdsfs" required>
                 <ul id="suggestion_list2">
                 </ul>
             </div>
-            <input type="submit" disabled id="assignToLecturerButton" value="Assign">
+            <input type="submit" disabled id="assignToStudentButton" value="Assign">
 
         </form>
     </div>

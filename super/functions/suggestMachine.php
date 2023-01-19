@@ -13,7 +13,7 @@ switch ($_POST) {
             $wordsCount = count($wordsAry);
             for ($i = 0; $i < $wordsCount; $i++) {
 
-                $queryCondition = "WHERE course_name LIKE '%" . $wordsAry[$i] . "%' OR course_code LIKE '%" . $wordsAry[$i] . "%' ";
+                $queryCondition = "WHERE name LIKE '%" . $wordsAry[$i] . "%' OR machine_id LIKE '%" . $wordsAry[$i] . "%' ";
 
                 if ($i != $wordsCount - 1) {
                     $queryCondition .= " OR ";
@@ -28,15 +28,15 @@ switch ($_POST) {
 
             $orderby = " ORDER BY id asc";
             //echo $queryCondition;
-            $query = "SELECT * FROM courses " . $queryCondition . $orderby . " LIMIT 0,6";
+            $query = "SELECT * FROM machines " . $queryCondition . $orderby . " LIMIT 0,6";
             $result = $db_handle->runQuery($query);
             if ($result) { ?>
                 <?php
-                foreach ($result as $course) {
-                    $fullName = $course['course_name'] . " [" . $course['course_code'] . ']';
-                    $courseCode = $course['course_name'];
+                foreach ($result as $machine) {
+                    $fullName = $machine['name'] . " [" . $machine['machine_id'] . ']';
+                    $machineCode = $machine['name'];
                 ?>
-                    <li onclick='selectSuggestion("<?= $courseCode ?>","suggestion_list2", "course_search_input","assignToLecturerButton")' class="suggestion_item"><?= $fullName ?></li>
+                    <li onclick='selectSuggestion("<?= $machineCode ?>","suggestion_list2", "machine_search_input","assignToStaffButton")' class="suggestion_item"><?= $fullName ?></li>
                 <?php } ?>
 <?php }
         }

@@ -34,7 +34,7 @@ switch ($_POST) {
                 <?php
                 foreach ($result as $machine) {
                     $fullName = $machine['name'] . " [" . $machine['machine_id'] . ']';
-                    $machineCode = $machine['name'];
+                    $machineCode = $machine['machine_id'];
                 ?>
                     <li onclick='selectSuggestion("<?= $machineCode ?>","suggestion_list2", "machine_search_input","assignToStaffButton")' class="suggestion_item"><?= $fullName ?></li>
                 <?php } ?>

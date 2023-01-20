@@ -35,7 +35,7 @@ if (!isset($_SESSION['ultra_log'])) {
             </div>
             <div class="p-1 form-control">
                 <label>Machine</label><br>
-                <input name="machine_name" onkeyup='simpleAsyncSearch("functions/suggestMachine", "machine_search_input", "suggestion_list2","assignToStaffButton")' id="machine_search_input" type="text" placeholder="**23jan1690515  **The Prototype" required>
+                <input name="machine_id" onkeyup='simpleAsyncSearch("functions/suggestMachine", "machine_search_input", "suggestion_list2","assignToStaffButton")' id="machine_search_input" type="text" placeholder="**23jan1690515  **The Prototype" required>
                 <ul id="suggestion_list2">
                 </ul>
             </div>

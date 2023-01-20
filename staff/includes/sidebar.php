@@ -11,7 +11,11 @@
             <?php
             $myMachine = getStaffsMachine($_SESSION['staff_id']);
             $activeTask = getActiveTaskForStaff($_SESSION['staff_id']);
-            $activeJobId = $activeTask['id']
+            if(!$activeTask){
+
+            }else{
+                $activeJobId = $activeTask['id'];
+            }
             ?>
             <?php if (checkIfActiveMachineJobBelongsToStaff($_SESSION['staff_id'])) { ?>
                 <?php if ($activeTask) { ?>
@@ -49,6 +53,7 @@
 
             <?php if ($myMachine) { ?>
                 <?php if (checkIfActiveMachineJobBelongsToStaff($_SESSION['staff_id'])) { ?>
+                    <?php if(!$activeJobId){}else{ ?>
                     <?php if (!getAllJobEntriesForJobId($activeJobId)) {
                     } else { ?>
                         <li class="collapsed">
@@ -59,7 +64,7 @@
                                 <!-- <li><a class="ms-link" href="job_data"> <span>Data Visualisation</span></a></li> -->
                             </ul>
                         </li>
-                    <?php } ?>
+                    <?php }} ?>
                 <?php } ?>
 
 

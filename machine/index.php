@@ -2,12 +2,14 @@
 require_once('config/connect.php');
 require_once('functions/functions.php');
 
+
+
 if (isset($_GET['machine_id']) && isset($_GET['card_id'])) {
-    if(performJobAssignedToMachine($_GET['machine_id'], $_GET['card_id'])){
-        echo http_response_code(200);
-    }else{
-        echo http_response_code(400);
+    if (performJobAssignedToMachine($_GET['machine_id'], $_GET['card_id'])) {
+        header("HTTP/1.1 200 True");
+    } else {
+        header("HTTP/1.1 400 False");
     }
-    die;
+} else {
+    header("HTTP/1.1 400 OK");
 }
-echo http_response_code(200);

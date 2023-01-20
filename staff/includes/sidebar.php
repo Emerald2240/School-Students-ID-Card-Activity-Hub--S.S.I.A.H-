@@ -12,8 +12,12 @@
             $myMachine = getStaffsMachine($_SESSION['staff_id']);
             $activeTask = getActiveTaskForStaff($_SESSION['staff_id']);
             ?>
-            <?php if ($activeTask) { ?>
-                <span class="logo-text"><?= shortenText($activeTask['name'], 25) ?> | <?= formatDateFriendlier($activeTask['date_updated']) ?></span>
+            <?php if (checkIfActiveMachineJobBelongsToStaff($_SESSION['staff_id'])) { ?>
+                <?php if ($activeTask) { ?>
+                    <span class="logo-text"><?= shortenText($activeTask['name'], 25) ?> | <?= formatDateFriendlier($activeTask['date_updated']) ?></span>
+                <?php }
+            } else { ?>
+                <span class="logo-text">Previous Owner Job Active</span>
             <?php } ?>
         </a>
         <!-- Menu: main ul -->
@@ -43,16 +47,18 @@
             </li>
 
             <?php if ($myMachine) { ?>
-                <li class="collapsed">
-                    <a class="m-link" data-bs-toggle="collapse" data-bs-target="#client-Components" href="#"><i class="icofont-user-male"></i> <span>Active Job Data</span> <span class="arrow icofont-dotted-down ms-auto text-end fs-5"></span></a>
-                    <!-- Menu: Sub menu ul -->
-                    <ul class="sub-menu collapse" id="client-Components">
-                        <li><a class="ms-link" href="job_summary"> <span>Summary</span></a></li>
-                        <!-- <li><a class="ms-link" href="job_data"> <span>Data Visualisation</span></a></li> -->
-                    </ul>
-                </li>
+                <?php if (checkIfActiveMachineJobBelongsToStaff($_SESSION['staff_id'])) { ?>
+                    <li class="collapsed">
+                        <a class="m-link" data-bs-toggle="collapse" data-bs-target="#client-Components" href="#"><i class="icofont-user-male"></i> <span>Active Job Data</span> <span class="arrow icofont-dotted-down ms-auto text-end fs-5"></span></a>
+                        <!-- Menu: Sub menu ul -->
+                        <ul class="sub-menu collapse" id="client-Components">
+                            <li><a class="ms-link" href="job_summary"> <span>Summary</span></a></li>
+                            <!-- <li><a class="ms-link" href="job_data"> <span>Data Visualisation</span></a></li> -->
+                        </ul>
+                    </li>
+                <?php } ?>
 
-                <?php ?>
+
 
                 <li class="collapsed">
                     <a class="m-link" data-bs-toggle="collapse" data-bs-target="#menu-Componentsone" href="#"><i class="icofont-ui-calculator"></i> <span>My Device</span> <span class="arrow icofont-dotted-down ms-auto text-end fs-5"></span></a>
@@ -63,7 +69,6 @@
                     </ul>
                 </li>
             <?php } ?>
-            <?php ?>
 
 
             <li class="collapsed">

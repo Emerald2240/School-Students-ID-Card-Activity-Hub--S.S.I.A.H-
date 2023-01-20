@@ -120,7 +120,9 @@ $myMachine = getStaffsMachine($_SESSION['staff_id']);
                                                         <div class="btn-group" role="group" aria-label="Basic outlined example">
                                                             <button type="button" class="btn btn-outline-secondary" onclick="setEditJobModalValues('<?= $job['name'] ?>', <?= $job['id'] ?>)" data-bs-toggle="modal" data-bs-target="#edittickit"><i class="icofont-edit text-success"></i></button>
                                                             <!-- <a href="" type="button" onclick="sweetAlertConfirmation(`functions/deleteJob?id=<?= $job['id'] ?>`)" class="btn btn-outline-secondary deleterow"><i class="icofont-ui-delete text-danger"></i></a> -->
-                                                            <button type="button" href="" onclick="sweetAlertConfirmation(`functions/deleteJob?id=<?= $job['id'] ?>`)" class="btn btn-outline-secondary"><i class="icofont-ui-delete text-danger"></i></button>
+                                                            <?php if ($job['id'] != $activeJob) { ?>
+                                                                <button type="button" href="" onclick="sweetAlertConfirmation(`functions/deleteJob?id=<?= $job['id'] ?>`)" class="btn btn-outline-secondary"><i class="icofont-ui-delete text-danger"></i></button>
+                                                            <?php } ?>
                                                             <!-- <a href="download-excel?job_id=<?= $job['id'] ?>" type="button" class="btn btn-outline-secondary"><i class="icofont-download text-primary"></i></a> -->
                                                             <button type="button" onclick="sweetAlertDownloadConfirmation('download-excel?job_id=<?= $job['id'] ?>', 'download-csv?job_id=<?= $job['id'] ?>')" type="button" class="btn btn-outline-secondary"><i class="icofont-download text-primary"></i></a>
 

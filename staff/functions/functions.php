@@ -651,3 +651,15 @@ function searchArray($array, $needle)
     }
     return false;
 }
+
+function checkIfActiveMachineJobBelongsToStaff($staffId)
+{
+    $myMachine = getStaffsMachine($staffId);
+    if (!$myMachine) {
+        return false;
+    }
+    $activeJobId = $myMachine['active_job_id'];
+    $activeJobInfo = getJobFromId($activeJobId);
+
+    return ($activeJobInfo['staff_id'] == $staffId);
+}

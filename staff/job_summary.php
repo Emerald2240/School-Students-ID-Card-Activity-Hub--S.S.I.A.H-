@@ -5,6 +5,10 @@ require_once('functions/functions.php');
 if (!$_SESSION['super_log']) {
     gotoPage('signin');
 }
+
+$myMachine = getStaffsMachine($_SESSION['staff_id']);
+$activeJobId = $myMachine['active_job_id'];
+$activeJobInfo = getJobFromId($activeJobId);
 ?>
 
 <!doctype html>
@@ -28,12 +32,6 @@ if (!$_SESSION['super_log']) {
 
             <!-- Body: Header -->
             <?php require_once('includes/header.php') ?>
-
-            <?php
-            $myMachine = getStaffsMachine($_SESSION['staff_id']);
-            $activeJobId = $myMachine['active_job_id'];
-            $activeJobInfo = getJobFromId($activeJobId);
-            ?>
 
             <!-- Body: Body -->
             <div class="body d-flex py-3">

@@ -660,6 +660,8 @@ function checkIfActiveMachineJobBelongsToStaff($staffId)
     }
     $activeJobId = $myMachine['active_job_id'];
     $activeJobInfo = getJobFromId($activeJobId);
-
+    if (!$activeJobInfo) {
+        return false;
+    }
     return ($activeJobInfo['staff_id'] == $staffId);
 }

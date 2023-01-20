@@ -2,3 +2,4 @@ staff/config/connect.php
 student/config/connect.php
 super/config/connect.php
 staff/config/connect.php
+machine/config/connect.php

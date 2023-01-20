@@ -11,6 +11,7 @@
             <?php
             $myMachine = getStaffsMachine($_SESSION['staff_id']);
             $activeTask = getActiveTaskForStaff($_SESSION['staff_id']);
+            $activeJobId = $activeTask['id']
             ?>
             <?php if (checkIfActiveMachineJobBelongsToStaff($_SESSION['staff_id'])) { ?>
                 <?php if ($activeTask) { ?>
@@ -48,14 +49,17 @@
 
             <?php if ($myMachine) { ?>
                 <?php if (checkIfActiveMachineJobBelongsToStaff($_SESSION['staff_id'])) { ?>
-                    <li class="collapsed">
-                        <a class="m-link" data-bs-toggle="collapse" data-bs-target="#client-Components" href="#"><i class="icofont-user-male"></i> <span>Active Job Data</span> <span class="arrow icofont-dotted-down ms-auto text-end fs-5"></span></a>
-                        <!-- Menu: Sub menu ul -->
-                        <ul class="sub-menu collapse" id="client-Components">
-                            <li><a class="ms-link" href="job_summary"> <span>Summary</span></a></li>
-                            <!-- <li><a class="ms-link" href="job_data"> <span>Data Visualisation</span></a></li> -->
-                        </ul>
-                    </li>
+                    <?php if (!getAllJobEntriesForJobId($activeJobId)) {
+                    } else { ?>
+                        <li class="collapsed">
+                            <a class="m-link" data-bs-toggle="collapse" data-bs-target="#client-Components" href="#"><i class="icofont-user-male"></i> <span>Active Job Data</span> <span class="arrow icofont-dotted-down ms-auto text-end fs-5"></span></a>
+                            <!-- Menu: Sub menu ul -->
+                            <ul class="sub-menu collapse" id="client-Components">
+                                <li><a class="ms-link" href="job_summary"> <span>Summary</span></a></li>
+                                <!-- <li><a class="ms-link" href="job_data"> <span>Data Visualisation</span></a></li> -->
+                            </ul>
+                        </li>
+                    <?php } ?>
                 <?php } ?>
 
 

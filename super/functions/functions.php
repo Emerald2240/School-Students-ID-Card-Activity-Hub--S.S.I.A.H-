@@ -191,7 +191,7 @@ function assignCardToStudent($studentId, $cardId)
   if ($db_handle->runQueryWithoutResponse($query)) {
     //createLog('Success', 'updateCourseSession');
     $superMachine = getSuperMachineInfo();
-    cleanWaitingCardIdFile($superMachine['name'], true);
+    cleanWaitingCardIdFile($superMachine['machine_id'], true);
     return true;
   } else {
     //createLog('Failed', 'updateCourseSession');
@@ -326,7 +326,7 @@ function getMachineInfoWithName($machine_name)
 {
   global $db_handle;
 
-  $result = $db_handle->selectAllWhere('machines', 'name', $machine_name);
+  $result = $db_handle->selectAllWhere('machines', 'machine_id', $machine_name);
   if (isset($result)) {
     return $result[0];
   } else {

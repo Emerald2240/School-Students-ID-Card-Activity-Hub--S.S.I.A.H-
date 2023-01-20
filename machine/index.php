@@ -6,10 +6,12 @@ require_once('functions/functions.php');
 
 if (isset($_GET['machine_id']) && isset($_GET['card_id'])) {
     if (performJobAssignedToMachine($_GET['machine_id'], $_GET['card_id'])) {
-        header("HTTP/1.1 200 True");
+        echo '1';
+        // header("HTTP/1.1 200 True");
     } else {
-        header("HTTP/1.1 400 False");
+        echo '0';
+        // header("HTTP/1.1 400 False");
     }
 } else {
-    header("HTTP/1.1 400 OK");
+    // header("HTTP/1.1 400 OK");
 }

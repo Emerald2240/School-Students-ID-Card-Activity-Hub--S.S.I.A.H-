@@ -9,19 +9,19 @@ function performJobAssignedToMachine($machineId, $cardId)
     if (!$machineInfo) {
         return false;
     }
-    echo 'Machine found<br>';
+    // echo 'Machine found<br>';
     $jobId = $machineInfo['active_job_id'];
     $jobInfo = getJobFromId($jobId);
     if (!$jobInfo) {
         return false;
     }
-    echo 'Job found<br>';
+    // echo 'Job found<br>';
     $jobTaskInfo = getTaskFromId($jobInfo['task_id']);
     if (!$jobTaskInfo) {
         return false;
     }
     $taskName = $jobTaskInfo['name'];
-    echo 'Task found: ' . $taskName . '<br>';
+    // echo 'Task found: ' . $taskName . '<br>';
 
 
     switch ($taskName) {

@@ -421,9 +421,14 @@ function getAllJobsForStaff($staffId)
 function getWaitingCardId($machineName)
 {
   $fileContent = "";
-  $myfile = fopen($machineName . 'Waiting.txt', "r");
-  $fileContent = fread($myfile, filesize($machineName . 'Waiting.txt'));
-  fclose($myfile);
+  if(file_exists($machineName . 'Waiting.txt')){
+
+    $myfile = fopen($machineName . 'Waiting.txt', "r");
+    $fileContent = fread($myfile, filesize($machineName . 'Waiting.txt'));
+    fclose($myfile);
+  }else{
+    return false;
+  }
 
   return $fileContent;
 }

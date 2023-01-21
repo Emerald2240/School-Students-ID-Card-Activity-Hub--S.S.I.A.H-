@@ -19,7 +19,7 @@ if (!$myMachine) {
     die('Machine not assigned to Super Staff. Assign it then come back.');
 }
 
-$waitingCard = getValidWaitingCardId($myMachine['name']);
+$waitingCard = getValidWaitingCardId($myMachine['machine_id']);
 if (!$waitingCard) {
     $waitingCard = '#';
 }

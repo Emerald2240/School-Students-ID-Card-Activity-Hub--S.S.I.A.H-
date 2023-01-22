@@ -422,7 +422,6 @@ function getWaitingCardId($machineName)
 {
   $fileContent = "";
   if(file_exists($machineName . 'Waiting.txt')){
-
     $myfile = fopen($machineName . 'Waiting.txt', "r");
     $fileContent = fread($myfile, filesize($machineName . 'Waiting.txt'));
     fclose($myfile);

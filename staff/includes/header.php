@@ -152,7 +152,7 @@
                                 ?>
                                     <a href="jobs" class="list-group-item list-group-item-action border-0 "><i class="icofont-ui-user-group fs-6 me-3"></i>My Machine</a>
                                 <?php } ?>
-                                <a href="ui-elements/auth-signin.html" class="list-group-item list-group-item-action border-0 "><i class="icofont-logout fs-6 me-3"></i>Signout</a>
+                                <a onclick="logout()" class="list-group-item list-group-item-action border-0 "><i class="icofont-logout fs-6 me-3"></i>Signout</a>
 
                             </div>
                         </div>

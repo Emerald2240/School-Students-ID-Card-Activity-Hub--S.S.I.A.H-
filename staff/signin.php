@@ -1,3 +1,30 @@
+<?php
+require_once('config/connect.php');
+require_once('functions/functions.php');
+
+// $first_name = 'Michael';
+// $last_name = 'Orji';
+// $id = 1;
+// $postemail = 'Orjimichael4886@gmail.com';
+// $title = 'Master';
+// $phone = '08148863871';
+// $gender = 'Male';
+// $department_id = 1;
+// $staff_id_number  = '2240';
+// $date_created = '2022-10-17';
+// $date_updated = '2022-10-17';
+// $set_year = '2017/2018';
+// $reg_no = '2017030180311';
+
+
+
+if (isset($_SESSION['super_log'])) {
+    gotoPage("index");
+}
+if (isset($_SESSION['ultra_log'])) {
+    gotoPage("../super/index");
+}
+?>
 <!doctype html>
 <html class="no-js" lang="en" dir="ltr">
 
@@ -52,7 +79,7 @@
                                         <h1>Sign in</h1>
                                         <span>Free access to our dashboard.</span>
                                     </div>
-                                    <div class="col-12 text-center mb-4">
+                                    <!-- <div class="col-12 text-center mb-4">
                                         <a class="btn btn-lg btn-outline-secondary btn-block" href="#">
                                             <span class="d-flex justify-content-center align-items-center">
                                                 <img class="avatar xs me-2" src="assets/images/google.svg" alt="Image Description">
@@ -60,11 +87,13 @@
                                             </span>
                                         </a>
                                         <span class="dividers text-muted mt-4">OR</span>
-                                    </div>
+                                    </div> -->
                                     <div class="col-12">
                                         <div class="mb-2">
                                             <label class="form-label">Email address</label>
-                                            <input type="email" class="form-control form-control-lg" placeholder="name@example.com">
+                                            <input id="login_email" onkeyup="checkIfAllFormFieldsFilled('login_button',getInputValuesAndReturnTheirContentAsJson(['login_email', 'login_password']))" value="<?php if (isset($_COOKIE['client_mail'])) {
+																																																												echo $_COOKIE['client_mail'];
+																																																											} ?>" placeholder="EMAIL ADDRESS*" type="email" class="form-control form-control-lg" placeholder="name@example.com">
                                         </div>
                                     </div>
                                     <div class="col-12">
@@ -72,26 +101,30 @@
                                             <div class="form-label">
                                                 <span class="d-flex justify-content-between align-items-center">
                                                     Password
-                                                    <a class="text-secondary" href="password-reset.html">Forgot Password?</a>
+                                                    <a class="text-secondary" href="password-reset">Forgot Password?</a>
                                                 </span>
                                             </div>
-                                            <input type="password" class="form-control form-control-lg" placeholder="***************">
+                                            <input id="login_password" onkeyup="checkIfAllFormFieldsFilled('login_button',getInputValuesAndReturnTheirContentAsJson(['login_email', 'login_password']))" value="<?php if (isset($_COOKIE['client_password'])) {
+																																																echo $_COOKIE['client_password'];
+																																															} ?>" id="login_password" type="password" class="form-control form-control-lg" placeholder="***************">
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                            <input id="login_remember_me" class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                                             <label class="form-check-label" for="flexCheckDefault">
                                                 Remember me
                                             </label>
                                         </div>
                                     </div>
                                     <div class="col-12 text-center mt-4">
-                                        <a href="index.html" class="btn btn-lg btn-block btn-light lift text-uppercase" atl="signin">SIGN IN</a>
+                                        <!-- <button id="login_button" onclick="processLoginAjaxPostRequest('functions/loginAjax.php', getInputValuesAndReturnTheirContentAsJson(['login_email', 'login_password', 'login_remember_me']))"  class="btn btn-lg btn-block btn-light lift text-uppercase" atl="signin">SIGN IN</button> -->
+                                        <input type="button" onclick="processLoginAjaxPostRequest('functions/loginAjax.php', getInputValuesAndReturnTheirContentAsJson(['login_email', 'login_password', 'login_remember_me']))" class="btn btn-lg btn-block btn-light lift text-uppercase" id="login_button" value="SIGN IN">
+
                                     </div>
-                                    <div class="col-12 text-center mt-4">
+                                    <!-- <div class="col-12 text-center mt-4">
                                         <span class="text-muted">Don't have an account yet? <a href="signup.html" class="text-secondary">Sign up here</a></span>
-                                    </div>
+                                    </div> -->
                                 </form>
                                 <!-- End Form -->
                             </div>
@@ -107,6 +140,11 @@
 
     <!-- Custom Js -->
     <?php require_once('includes/js_imports.php') ?>
+
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="functions/loginFunctionality.js?v=<?php echo time(); ?>"></script>
+
+
 
 </body>
 

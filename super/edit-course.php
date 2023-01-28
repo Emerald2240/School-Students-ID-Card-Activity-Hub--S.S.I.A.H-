@@ -3,9 +3,8 @@ require_once('config/connect.php');
 require_once('functions/functions.php');
 
 if (!isset($_SESSION['ultra_log'])) {
-    gotoPage("../index");
+    gotoPage("../staff/index");
 }
-
 // gotoPage('active-courses');
 ?>
 <!DOCTYPE html>

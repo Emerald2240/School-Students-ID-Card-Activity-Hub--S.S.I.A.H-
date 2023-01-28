@@ -2,29 +2,29 @@
 session_start();
 $db_handle = new DBController();
 
-$first_name = 'Tester';
-$last_name = 'Zero';
-$id = 1;
-$postemail = 'testerzero@mail.com';
-$phone = '08148863871';
-$gender = 'Male';
-$department = 'Computer Engineering';
-$title = 'Programmer';
-$staff_id_number = '23434534554';
+// $first_name = 'Tester';
+// $last_name = 'Zero';
+// $id = 1;
+// $postemail = 'testerzero@mail.com';
+// $phone = '08148863871';
+// $gender = 'Male';
+// $department = 'Computer Engineering';
+// $title = 'Programmer';
+// $staff_id_number = '23434534554';
 
-$_SESSION['user_name'] = ucwords(strtolower($first_name)) . " " . ucwords(strtolower($last_name));
-$_SESSION['first_name'] = $first_name;
-$_SESSION['last_name'] = $last_name;
-$_SESSION['full_name'] = $first_name . ' ' . $last_name;
-$_SESSION['staff_id'] = $id;
-$_SESSION['staff_email'] = $postemail;
-$_SESSION['staff_gender'] = $gender;
-$_SESSION['staff_department'] = $department;
-$_SESSION['phone'] = $phone;
-$_SESSION['staff_title'] = $title;
-$_SESSION['staff_id_number'] = $staff_id_number;
+// $_SESSION['user_name'] = ucwords(strtolower($first_name)) . " " . ucwords(strtolower($last_name));
+// $_SESSION['first_name'] = $first_name;
+// $_SESSION['last_name'] = $last_name;
+// $_SESSION['full_name'] = $first_name . ' ' . $last_name;
+// $_SESSION['staff_id'] = $id;
+// $_SESSION['staff_email'] = $postemail;
+// $_SESSION['staff_gender'] = $gender;
+// $_SESSION['staff_department'] = $department;
+// $_SESSION['phone'] = $phone;
+// $_SESSION['staff_title'] = $title;
+// $_SESSION['staff_id_number'] = $staff_id_number;
 
-$_SESSION['super_log'] = true;
+// $_SESSION['super_log'] = true;
 
 
 
@@ -664,4 +664,105 @@ function checkIfActiveMachineJobBelongsToStaff($staffId)
         return false;
     }
     return ($activeJobInfo['staff_id'] == $staffId);
+}
+
+function checkIfEmailExists($email)
+{
+    global $db_handle;
+    //$response = [];
+    $result = $db_handle->selectAllWhere('students', 'email', $email);
+    $result2 = $db_handle->selectAllWhere('staff', 'email', $email);
+    $result3 = $db_handle->selectAllWhere('super_admins', 'email', $email);
+
+
+    return isset($result) && count($result) > 0 || isset($result2) && count($result2) > 0 || isset($result3) && count($result3) > 0;
+}
+
+function confirmUserEmailAndPassword($postemail, $postpassword, $rememberMe)
+{
+    global $db_handle;
+    //$response = [];
+    //lecturers first
+    $result = $db_handle->selectAllWhereWith2Conditions('staff', 'email', $postemail, 'password', sha1($postpassword));
+    if (isset($result) && count($result) > 0) {
+        foreach ($result as $row) {
+            extract($row);
+            $_SESSION['user_name'] = ucwords(strtolower($first_name)) . " " . ucwords(strtolower($last_name));
+            $_SESSION['first_name'] = $first_name;
+            $_SESSION['last_name'] = $last_name;
+            $_SESSION['full_name'] = $first_name . ' ' . $last_name;
+            $_SESSION['staff_id'] = $id;
+            $_SESSION['staff_email'] = $postemail;
+            $_SESSION['staff_title'] = $title;
+            $_SESSION['phone'] = $phone;
+            $_SESSION['staff_gender'] = $gender;
+            $_SESSION['staff_department'] = $department_id;
+            $_SESSION['staff_id_number'] = $staff_id_number;
+            $_SESSION['date_created'] = $date_created;
+            $_SESSION['date_updated'] = $date_updated;
+
+            $_SESSION['super_log'] = true;
+
+            // //This is the line of code for saving cookies AKA remember me
+
+            // if (isset($remember)) {
+            if ($rememberMe == true) {
+                //Creates a cookie named "user" with the value "John Doe". The cookie will expire after 30 days (86400 * 30). The "/" means that the cookie is available in entire website (otherwise, select the directory you prefer).
+
+                //setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
+                setcookie('client_mail', $postemail, time() + (86400 * 30), "/"); // 86400 = 1 day
+                setcookie('client_password', $postpassword, time() + (86400 * 30), "/"); // 86400 = 1 day
+
+            } else {
+                if (isset($_COOKIE['mem_log'])) {
+                    setcookie('mem_log', '');
+                }
+                setcookie("client_mail",  $_SESSION['user_email'], time() + (10 * 365 * 24 * 60 * 60));
+                setcookie("client_pass", '', time() + (10 * 365 * 24 * 60 * 60));
+            }
+        }
+        return $result;
+    } else {
+        //superAdmins last
+        $result = $db_handle->selectAllWhereWith2Conditions('super_admins', 'email', $postemail, 'password', sha1($postpassword));
+        if (isset($result) && count($result) > 0) {
+            foreach ($result as $row) {
+                extract($row);
+                $_SESSION['user_name'] = ucwords(strtolower($first_name)) . " " . ucwords(strtolower($last_name));
+                $_SESSION['first_name'] = $first_name;
+                $_SESSION['last_name'] = $last_name;
+                $_SESSION['full_name'] = $first_name . ' ' . $last_name;
+                $_SESSION['sadmin_id'] = $id;
+                $_SESSION['sadmin_email'] = $postemail;
+                $_SESSION['sadmin_authority'] = $authority;
+                $_SESSION['phone'] = $phone;
+
+                $_SESSION['ultra_log'] = true;
+
+                // //This is the line of code for saving cookies AKA remember me
+
+                // if (isset($remember)) {
+                if ($rememberMe == true) {
+                    //Creates a cookie named "user" with the value "John Doe". The cookie will expire after 30 days (86400 * 30). The "/" means that the cookie is available in entire website (otherwise, select the directory you prefer).
+
+                    //setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
+                    setcookie('client_mail', $postemail, time() + (86400 * 30), "/"); // 86400 = 1 day
+                    setcookie('client_password', $postpassword, time() + (86400 * 30), "/"); // 86400 = 1 day
+
+                } else {
+                    if (isset($_COOKIE['mem_log'])) {
+                        setcookie('mem_log', '');
+                    }
+                    setcookie("client_mail",  $_SESSION['user_email'], time() + (10 * 365 * 24 * 60 * 60));
+                    setcookie("client_pass", '', time() + (10 * 365 * 24 * 60 * 60));
+                }
+            }
+            return $result;
+        } else {
+            return ([['error' => 'Wrong Password']]);
+            //return false;
+        }
+        //return false;
+    }
+    //return false;
 }

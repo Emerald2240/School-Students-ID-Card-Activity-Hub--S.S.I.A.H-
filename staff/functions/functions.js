@@ -103,3 +103,23 @@ function setEditJobModalValues(title, id) {
     jobId.value = id;
     // }, 2000);
 }
+
+function logout() {
+    swal({
+        title: "Ready to leave?",
+        text: "Select 'Ok' below if you are ready to end your current session.",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+    })
+        .then((willDelete) => {
+            if (willDelete) {
+                swal("Successfully logged out.", {
+                    icon: "success",
+                });
+                window.location = 'functions/logout.php';
+            } else {
+                //swal("Great Choice!");
+            }
+        });
+}

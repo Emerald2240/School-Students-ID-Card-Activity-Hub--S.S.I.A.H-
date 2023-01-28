@@ -3,7 +3,7 @@ require_once('config/connect.php');
 require_once('functions/functions.php');
 
 if (!isset($_SESSION['ultra_log'])) {
-    gotoPage("../index");
+    gotoPage("../staff/index");
 }
 
 // gotoPage('active-courses');
@@ -26,7 +26,7 @@ if (!isset($_SESSION['ultra_log'])) {
         padding: 0;
     }
 
-    a:hover{
+    a:hover {
         color: orange;
     }
 
@@ -43,7 +43,7 @@ if (!isset($_SESSION['ultra_log'])) {
         margin: 10px;
     }
 
-    body{
+    body {
         background-color: cornflowerblue;
     }
 </style>
@@ -58,10 +58,12 @@ if (!isset($_SESSION['ultra_log'])) {
         <li><a href="assign-machine-super-job">Assign Machine to Capture Job</a></li>
         <li><a href="assign-student-card">Assign RFID Card to Student</a></li>
 
-        <li><a href="create-course">Create New Course</a></li>
-        <li><a href="create-department">Create New Department</a></li>
+        <!-- <li><a href="create-course">Create New Course</a></li>
+        <li><a href="create-department">Create New Department</a></li> -->
         <li><a href="create-lecturer">Create New Machine</a></li>
         <li><a href="create-lecturer">Create New Staff</a></li>
+        <li><a href="create-lecturer">Create New Student</a></li>
+
 
 
 

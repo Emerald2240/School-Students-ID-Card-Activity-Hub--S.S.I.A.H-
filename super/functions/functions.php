@@ -2,23 +2,23 @@
 session_start();
 $db_handle = new DBController();
 
-$first_name = 'Leonardo';
-$last_name = 'super';
-$id = 1;
-$postemail = 'orjimichael4886@gmail.com';
-$authority = 'ultimate';
-$phone = '08148863871';
+// $first_name = 'Leonardo';
+// $last_name = 'super';
+// $id = 1;
+// $postemail = 'orjimichael4886@gmail.com';
+// $authority = 'ultimate';
+// $phone = '08148863871';
 
-$_SESSION['user_name'] = ucwords(strtolower($first_name)) . " " . ucwords(strtolower($last_name));
-$_SESSION['first_name'] = $first_name;
-$_SESSION['last_name'] = $last_name;
-$_SESSION['full_name'] = $first_name . ' ' . $last_name;
-$_SESSION['sadmin_id'] = $id;
-$_SESSION['sadmin_email'] = $postemail;
-$_SESSION['sadmin_authority'] = $authority;
-$_SESSION['phone'] = $phone;
+// $_SESSION['user_name'] = ucwords(strtolower($first_name)) . " " . ucwords(strtolower($last_name));
+// $_SESSION['first_name'] = $first_name;
+// $_SESSION['last_name'] = $last_name;
+// $_SESSION['full_name'] = $first_name . ' ' . $last_name;
+// $_SESSION['sadmin_id'] = $id;
+// $_SESSION['sadmin_email'] = $postemail;
+// $_SESSION['sadmin_authority'] = $authority;
+// $_SESSION['phone'] = $phone;
 
-$_SESSION['ultra_log'] = true;
+// $_SESSION['ultra_log'] = true;
 
 /**
  * Removes unwanted and harmful characters

@@ -101,7 +101,7 @@ function createNewDepartment($department_name, $department_code)
   return $db_handle->runQueryWithoutResponse($query);
 }
 
-function createLecturer($firstName, $lastName, $gender, $email, $staffId, $departmentId)
+function createStaff($firstName, $lastName, $gender, $email, $staffId, $departmentId)
 {
   global $db_handle;
 
@@ -112,7 +112,7 @@ function createLecturer($firstName, $lastName, $gender, $email, $staffId, $depar
   $staffId = sanitize($staffId);
   //$departmentId = getDepartmentID(sanitize($department));
 
-  $query = "INSERT INTO `lecturers` (
+  $query = "INSERT INTO `staff` (
   `first_name`,
   `last_name`,	
   `gender`,
@@ -125,6 +125,53 @@ function createLecturer($firstName, $lastName, $gender, $email, $staffId, $depar
     '$email',
     '$staffId',
     $departmentId
+    );";
+  return $db_handle->runQueryWithoutResponse($query);
+}
+
+function createStudent($firstName, $lastName, $gender, $email, $regNumber, $departmentId)
+{
+  global $db_handle;
+
+  $firstName = sanitize($firstName, 'clean');
+  $lastName = sanitize($lastName, 'clean');
+  $email = sanitize($email);
+  $gender = sanitize($gender);
+  $regNumber = sanitize($regNumber);
+  //$departmentId = getDepartmentID(sanitize($department));
+
+  $query = "INSERT INTO `students` (
+  `first_name`,
+  `last_name`,	
+  `gender`,
+  `email`,
+  `reg_no`,	
+  `department_id`) VALUES (
+    '$firstName',
+    '$lastName',
+    '$gender',
+    '$email',
+    '$regNumber',
+    $departmentId
+    );";
+  return $db_handle->runQueryWithoutResponse($query);
+}
+
+function createMachine($machineName, $mark, $machineId)
+{
+  global $db_handle;
+
+  $machineName = sanitize($machineName, 'clean');
+  $mark = sanitize($mark, 'clean');
+  $machineId = sanitize($machineId, 'clean');
+
+  $query = "INSERT INTO `machines` (
+  `name`,
+  `mark`,	
+  `machine_id`) VALUES (
+    '$machineName',
+    '$mark',
+    '$machineId'
     );";
   return $db_handle->runQueryWithoutResponse($query);
 }
@@ -201,7 +248,7 @@ function assignCardToStudent($studentId, $cardId)
 
 function getSuperMachineInfo()
 {
-  $nullStaff = getStaffInfoWithEmail('nullvoid@mail.com');
+  $nullStaff = getStaffInfoWithEmail('superstaff@mail.com');
   return getStaffsMachine($nullStaff['id']);
 }
 
@@ -334,34 +381,6 @@ function getMachineInfoWithName($machine_name)
   }
 }
 
-
-function validateEmail($email)
-{
-  global $db_handle;
-  //$response = [];
-  $result = $db_handle->selectAllWhere('students', 'email', $email);
-
-  return isset($result) && count($result) > 0;
-}
-
-function validateLecturerEmail($email)
-{
-  global $db_handle;
-  //$response = [];
-  $result = $db_handle->selectAllWhere('lecturers', 'email', $email);
-
-  return isset($result) && count($result) > 0;
-}
-
-function validateSuperAdminEmail($email)
-{
-  global $db_handle;
-  //$response = [];
-  $result = $db_handle->selectAllWhere('super_admins', 'email', $email);
-
-  return isset($result) && count($result) > 0;
-}
-
 function readWaitingCardPerMachineFile($machineId, $cardId)
 {
   $fileContent = "";
@@ -421,11 +440,11 @@ function getAllJobsForStaff($staffId)
 function getWaitingCardId($machineName)
 {
   $fileContent = "";
-  if(file_exists($machineName . 'Waiting.txt')){
+  if (file_exists($machineName . 'Waiting.txt')) {
     $myfile = fopen($machineName . 'Waiting.txt', "r");
     $fileContent = fread($myfile, filesize($machineName . 'Waiting.txt'));
     fclose($myfile);
-  }else{
+  } else {
     return false;
   }
 
@@ -469,4 +488,50 @@ function hasCardBeenUsed($cardId)
   } else {
     return false;
   }
+}
+
+
+function validateEmail($email)
+{
+  global $db_handle;
+  //$response = [];
+  $result = $db_handle->selectAllWhere('students', 'email', $email);
+
+  return isset($result) && count($result) > 0;
+}
+
+function validateStaffEmail($email)
+{
+  global $db_handle;
+  //$response = [];
+  $result = $db_handle->selectAllWhere('staff', 'email', $email);
+
+  return isset($result) && count($result) > 0;
+}
+
+function validateSuperAdminEmail($email)
+{
+  global $db_handle;
+  //$response = [];
+  $result = $db_handle->selectAllWhere('super_admins', 'email', $email);
+
+  return isset($result) && count($result) > 0;
+}
+
+function validateStudentRegNumber($reg)
+{
+  global $db_handle;
+  //$response = [];
+  $result = $db_handle->selectAllWhere('students', 'reg_no', $reg);
+
+  return isset($result) && count($result) > 0;
+}
+
+function doesMachineIdExist($machineId)
+{
+  global $db_handle;
+  //$response = [];
+  $result = $db_handle->selectAllWhere('machines', 'machine_id', $machineId);
+
+  return isset($result) && count($result) > 0;
 }

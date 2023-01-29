@@ -23,12 +23,12 @@ if (!isset($_SESSION['ultra_log'])) {
 
 <body>
     <div class="header">
-        <h1>Create Lecturer</h1>
+        <h1>Create Student</h1>
         <strong>"And then the lord God formed man from the clay of the earth , and he breathed into his face the breath of life, and man became a living soul."<br> ~Genesis 2:7</strong>
     </div>
 
     <div>
-        <form action="functions/createLecturer.php" method="POST">
+        <form action="functions/createStudent.php" method="POST">
             <div class="p-1 form-control">
                 <label>First Name</label><br>
                 <input name="first_name" type="text" placeholder="**Michael" required>
@@ -49,8 +49,8 @@ if (!isset($_SESSION['ultra_log'])) {
                 <input name="email" type="email" placeholder="**michael123@mail.com" required>
             </div>
             <div class="p-1 form-control">
-                <label>Staff Id</label><br>
-                <input name="staff_id" type="text" placeholder="**567438732" required>
+                <label>Reg Number</label><br>
+                <input name="reg_number" type="text" placeholder="**567438732" required>
             </div>
             <div class="p-1 form-control">
                 <label>Department</label><br>
@@ -63,8 +63,8 @@ if (!isset($_SESSION['ultra_log'])) {
         </form>
     </div>
 
-     <!-- JS Includes -->
-     <?php 
+    <!-- JS Includes -->
+    <?php
     require_once('includes/js_includes.php')
     ?>
 </body>

@@ -6,7 +6,7 @@ if (!isset($_SESSION['ultra_log'])) {
     gotoPage("../staff/index");
 }
 
-$nullStaff = getStaffInfoWithEmail('nullvoid@mail.com');
+$nullStaff = getStaffInfoWithEmail('superstaff@mail.com');
 // var_dump($nullStaff);
 // echo '<hr>';
 $myJobs = getAllJobsForStaff($nullStaff['id']);

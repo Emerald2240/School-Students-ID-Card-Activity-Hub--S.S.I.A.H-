@@ -60,9 +60,9 @@ if (!isset($_SESSION['ultra_log'])) {
 
         <!-- <li><a href="create-course">Create New Course</a></li>
         <li><a href="create-department">Create New Department</a></li> -->
-        <li><a href="create-lecturer">Create New Machine</a></li>
-        <li><a href="create-lecturer">Create New Staff</a></li>
-        <li><a href="create-lecturer">Create New Student</a></li>
+        <li><a href="create-machine">Create New Machine</a></li>
+        <li><a href="create-staff">Create New Staff</a></li>
+        <li><a href="create-student">Create New Student</a></li>
 
 
 

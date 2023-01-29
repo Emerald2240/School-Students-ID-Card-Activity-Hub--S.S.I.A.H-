@@ -13,9 +13,9 @@ $email = $_POST['email'];
 $staffId = $_POST['staff_id'];
 $departmentId = getDepartmentId($_POST['department_name']);
 
-if (!validateEmail($email) && !validateLecturerEmail($email) && !validateSuperAdminEmail($email)) {
+if (!validateEmail($email) && !validateStaffEmail($email) && !validateSuperAdminEmail($email)) {
     if (isset($firstName) && isset($lastName) && isset($departmentId)) {
-        if (createLecturer($firstName, $lastName, $gender, $email, $staffId, $departmentId)) {
+        if (createStaff($firstName, $lastName, $gender, $email, $staffId, $departmentId)) {
             echo 'Lecturer Created Successfully! Their default password is 1';
         } else {
             echo 'Unknown error occured.';

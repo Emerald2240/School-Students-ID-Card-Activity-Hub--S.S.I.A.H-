@@ -23,7 +23,7 @@ require_once('functions/functions.php');
 
 // echo getWaitingCardId('letsgo');
 
-$nullStaff = getStaffInfoWithEmail('nullvoid@mail.com');
+$nullStaff = getStaffInfoWithEmail('superstaff@mail.com');
 // var_dump($nullStaff);
 // echo '<hr>';
 $myJobs = getAllJobsForStaff($nullStaff['id']);

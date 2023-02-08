@@ -72,65 +72,67 @@ $myMachine = getStaffsMachine($_SESSION['staff_id']);
                                             <?php
                                             $jobs = getAllJobsForStaff($_SESSION['staff_id']);
                                             $activeJob = getActiveJobForStaff($_SESSION['staff_id']);
-                                            foreach ($jobs as $job) {
-                                                $task = getTaskFromId($job['task_id']);
-                                                $jobScans = getAllJobEntriesForJobId($job['id']);
-                                                if (!$jobScans) {
-                                                    $jobScans = 0;
-                                                } else {
-                                                    $jobScans = count($jobScans);
-                                                }
+                                            if ($jobs) {
+                                                foreach ($jobs as $job) {
+                                                    $task = getTaskFromId($job['task_id']);
+                                                    $jobScans = getAllJobEntriesForJobId($job['id']);
+                                                    if (!$jobScans) {
+                                                        $jobScans = 0;
+                                                    } else {
+                                                        $jobScans = count($jobScans);
+                                                    }
 
                                             ?>
-                                                <tr>
-                                                    <td>
-                                                        <span class="fw-bold text-secondary"><?= $job['id'] ?></span>
-                                                    </td>
-                                                    <td>
-                                                        <?php
-                                                        if ($job['id'] == $activeJob) { ?>
-                                                            <strong><?= shortenText($job['name'], 25) ?></strong>
-                                                        <?php } else { ?>
-                                                            <?= shortenText($job['name'], 25) ?>
-                                                        <?php } ?>
-
-
-                                                    </td>
-                                                    <td>
-                                                        <span class="fw-bold ms-1"><?= $task['name'] ?></span>
-                                                    </td>
-                                                    <td>
-                                                        <?= formatDateFriendlier($job['date_updated']) ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php
-                                                        if ($myMachine) {
+                                                    <tr>
+                                                        <td>
+                                                            <span class="fw-bold text-secondary"><?= $job['id'] ?></span>
+                                                        </td>
+                                                        <td>
+                                                            <?php
                                                             if ($job['id'] == $activeJob) { ?>
-                                                                <span class="badge bg-danger">Active</span>
+                                                                <strong><?= shortenText($job['name'], 25) ?></strong>
                                                             <?php } else { ?>
-                                                                <a href="functions/activateJob?id=<?= $job['id'] ?>"><span class="badge bg-success">Waiting</span></a>
-                                                        <?php }
-                                                        } ?>
-
-                                                    </td>
-                                                    <td>
-                                                        <?= $jobScans ?>
-                                                    </td>
-                                                    <td>
-                                                        <div class="btn-group" role="group" aria-label="Basic outlined example">
-                                                            <button type="button" class="btn btn-outline-secondary" onclick="setEditJobModalValues('<?= $job['name'] ?>', <?= $job['id'] ?>)" data-bs-toggle="modal" data-bs-target="#edittickit"><i class="icofont-edit text-success"></i></button>
-                                                            <!-- <a href="" type="button" onclick="sweetAlertConfirmation(`functions/deleteJob?id=<?= $job['id'] ?>`)" class="btn btn-outline-secondary deleterow"><i class="icofont-ui-delete text-danger"></i></a> -->
-                                                            <?php if ($job['id'] != $activeJob) { ?>
-                                                                <button type="button" href="" onclick="sweetAlertConfirmation(`functions/deleteJob?id=<?= $job['id'] ?>`)" class="btn btn-outline-secondary"><i class="icofont-ui-delete text-danger"></i></button>
+                                                                <?= shortenText($job['name'], 25) ?>
                                                             <?php } ?>
-                                                            <!-- <a href="download-excel?job_id=<?= $job['id'] ?>" type="button" class="btn btn-outline-secondary"><i class="icofont-download text-primary"></i></a> -->
-                                                            <button type="button" onclick="sweetAlertDownloadConfirmation('download-excel?job_id=<?= $job['id'] ?>', 'download-csv?job_id=<?= $job['id'] ?>')" type="button" class="btn btn-outline-secondary"><i class="icofont-download text-primary"></i></a>
 
-                                                        </div>
-                                                    </td>
-                                                </tr>
+
+                                                        </td>
+                                                        <td>
+                                                            <span class="fw-bold ms-1"><?= $task['name'] ?></span>
+                                                        </td>
+                                                        <td>
+                                                            <?= formatDateFriendlier($job['date_updated']) ?>
+                                                        </td>
+                                                        <td>
+                                                            <?php
+                                                            if ($myMachine) {
+                                                                if ($job['id'] == $activeJob) { ?>
+                                                                    <span class="badge bg-danger">Active</span>
+                                                                <?php } else { ?>
+                                                                    <a href="functions/activateJob?id=<?= $job['id'] ?>"><span class="badge bg-success">Waiting</span></a>
+                                                            <?php }
+                                                            } ?>
+
+                                                        </td>
+                                                        <td>
+                                                            <?= $jobScans ?>
+                                                        </td>
+                                                        <td>
+                                                            <div class="btn-group" role="group" aria-label="Basic outlined example">
+                                                                <button type="button" class="btn btn-outline-secondary" onclick="setEditJobModalValues('<?= $job['name'] ?>', <?= $job['id'] ?>)" data-bs-toggle="modal" data-bs-target="#edittickit"><i class="icofont-edit text-success"></i></button>
+                                                                <!-- <a href="" type="button" onclick="sweetAlertConfirmation(`functions/deleteJob?id=<?= $job['id'] ?>`)" class="btn btn-outline-secondary deleterow"><i class="icofont-ui-delete text-danger"></i></a> -->
+                                                                <?php if ($job['id'] != $activeJob) { ?>
+                                                                    <button type="button" href="" onclick="sweetAlertConfirmation(`functions/deleteJob?id=<?= $job['id'] ?>`)" class="btn btn-outline-secondary"><i class="icofont-ui-delete text-danger"></i></button>
+                                                                <?php } ?>
+                                                                <!-- <a href="download-excel?job_id=<?= $job['id'] ?>" type="button" class="btn btn-outline-secondary"><i class="icofont-download text-primary"></i></a> -->
+                                                                <button type="button" onclick="sweetAlertDownloadConfirmation('download-excel?job_id=<?= $job['id'] ?>', 'download-csv?job_id=<?= $job['id'] ?>')" type="button" class="btn btn-outline-secondary"><i class="icofont-download text-primary"></i></a>
+
+                                                            </div>
+                                                        </td>
+                                                    </tr>
 
                                             <?php
+                                                }
                                             }
                                             ?>
 

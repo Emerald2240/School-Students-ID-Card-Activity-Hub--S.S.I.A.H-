@@ -268,7 +268,7 @@ function getAllJobEntriesForStaff($staffId)
     $jobs = getAllJobsForStaff($staffId);
 
     global $db_handle;
-
+if($jobs){
     foreach ($jobs as $job) {
         $result = $db_handle->selectAllWhere('job_entries', 'job_id', $job['id']);
         if (isset($result)) {
@@ -277,6 +277,7 @@ function getAllJobEntriesForStaff($staffId)
             }
         }
     }
+}
     if (isset($allJobEntries)) {
         return $allJobEntries;
     } else {

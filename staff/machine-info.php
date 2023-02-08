@@ -78,8 +78,8 @@ if (!$machineInfo) {
                                             Current Handler: <strong><?= $_SESSION['full_name'] ?></strong><br>
                                             Active Job: <strong><?= shortenText($activeJobInfo['name'], 25) ?></strong><br><br>
 
-                                            WiFi/SSID Name: TassiahMK1 <br>
-                                            Password:  tx101
+                                            WiFi/SSID Name: Free Data <br>
+                                            Password:  free dataxyz
                                         
                                         </div>
                                     </div>

@@ -22,7 +22,8 @@
                     <span class="logo-text"><?= shortenText($activeTask['name'], 25) ?> | <?= formatDateFriendlier($activeTask['date_updated']) ?></span>
                 <?php }
             } else { ?>
-                <span class="logo-text">Previous Owner Job Active</span>
+                <!-- <span class="logo-text">Previous Owner Job Active</span> -->
+                <span class="logo-text">No Job Active</span>
             <?php } ?>
         </a>
         <!-- Menu: main ul -->

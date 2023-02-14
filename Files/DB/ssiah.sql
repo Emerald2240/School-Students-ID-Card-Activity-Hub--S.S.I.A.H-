@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 20, 2023 at 11:24 AM
+-- Generation Time: Feb 08, 2023 at 01:43 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -89,7 +89,6 @@ INSERT INTO `departmental_fees` (`id`, `student_id`, `date_created`, `date_updat
 (14, 11, '2023-01-16 22:19:21', '2023-01-16 22:19:21'),
 (15, 12, '2023-01-16 22:19:21', '2023-01-16 22:19:21'),
 (16, 11, '2023-01-16 22:19:21', '2023-01-16 22:19:21'),
-(17, 1, '2023-01-16 22:19:21', '2023-01-16 22:19:21'),
 (18, 5, '2023-01-16 22:19:21', '2023-01-16 22:19:21'),
 (19, 4, '2023-01-16 22:19:21', '2023-01-16 22:19:21'),
 (20, 24, '2023-01-16 22:19:21', '2023-01-16 22:19:21'),
@@ -197,11 +196,10 @@ CREATE TABLE `faculty_fees` (
 --
 
 INSERT INTO `faculty_fees` (`id`, `student_id`, `date_created`, `date_updated`) VALUES
-(1, 2, '2023-01-16 22:26:13', '2023-01-16 22:26:13'),
+(1, 1, '2023-01-16 22:26:13', '2023-01-20 11:32:57'),
 (2, 4, '2023-01-16 22:26:13', '2023-01-16 22:26:13'),
 (3, 3, '2023-01-16 22:26:13', '2023-01-16 22:26:13'),
 (4, 6, '2023-01-16 22:26:13', '2023-01-16 22:26:13'),
-(5, 1, '2023-01-16 22:26:13', '2023-01-16 22:26:13'),
 (6, 2, '2023-01-16 22:26:13', '2023-01-16 22:26:13'),
 (7, 6, '2023-01-16 22:26:13', '2023-01-16 22:26:13'),
 (8, 3, '2023-01-16 22:26:13', '2023-01-16 22:26:13'),
@@ -214,21 +212,16 @@ INSERT INTO `faculty_fees` (`id`, `student_id`, `date_created`, `date_updated`) 
 (15, 3, '2023-01-16 22:26:13', '2023-01-16 22:26:13'),
 (16, 3, '2023-01-16 22:26:13', '2023-01-16 22:26:13'),
 (17, 6, '2023-01-16 22:26:13', '2023-01-16 22:26:13'),
-(18, 1, '2023-01-16 22:26:13', '2023-01-16 22:26:13'),
 (19, 3, '2023-01-16 22:26:13', '2023-01-16 22:26:13'),
-(20, 1, '2023-01-16 22:26:13', '2023-01-16 22:26:13'),
 (21, 2, '2023-01-16 22:26:13', '2023-01-16 22:26:13'),
 (22, 5, '2023-01-16 22:26:13', '2023-01-16 22:26:13'),
 (23, 4, '2023-01-16 22:26:13', '2023-01-16 22:26:13'),
-(24, 1, '2023-01-16 22:26:13', '2023-01-16 22:26:13'),
 (25, 4, '2023-01-16 22:26:13', '2023-01-16 22:26:13'),
 (26, 3, '2023-01-16 22:26:13', '2023-01-16 22:26:13'),
-(27, 1, '2023-01-16 22:26:13', '2023-01-16 22:26:13'),
 (28, 6, '2023-01-16 22:26:13', '2023-01-16 22:26:13'),
 (29, 5, '2023-01-16 22:26:13', '2023-01-16 22:26:13'),
 (30, 2, '2023-01-16 22:26:13', '2023-01-16 22:26:13'),
 (31, 5, '2023-01-16 22:26:13', '2023-01-16 22:26:13'),
-(32, 1, '2023-01-16 22:26:13', '2023-01-16 22:26:13'),
 (33, 5, '2023-01-16 22:26:13', '2023-01-16 22:26:13'),
 (34, 4, '2023-01-16 22:26:13', '2023-01-16 22:26:13'),
 (35, 6, '2023-01-16 22:26:13', '2023-01-16 22:26:13'),
@@ -251,7 +244,6 @@ INSERT INTO `faculty_fees` (`id`, `student_id`, `date_created`, `date_updated`) 
 (52, 4, '2023-01-16 22:43:01', '2023-01-16 22:43:01'),
 (53, 3, '2023-01-16 22:43:01', '2023-01-16 22:43:01'),
 (54, 6, '2023-01-16 22:43:01', '2023-01-16 22:43:01'),
-(55, 1, '2023-01-16 22:43:01', '2023-01-16 22:43:01'),
 (56, 2, '2023-01-16 22:43:01', '2023-01-16 22:43:01'),
 (57, 6, '2023-01-16 22:43:01', '2023-01-16 22:43:01'),
 (58, 3, '2023-01-16 22:43:01', '2023-01-16 22:43:01'),
@@ -264,21 +256,16 @@ INSERT INTO `faculty_fees` (`id`, `student_id`, `date_created`, `date_updated`) 
 (65, 3, '2023-01-16 22:43:01', '2023-01-16 22:43:01'),
 (66, 3, '2023-01-16 22:43:01', '2023-01-16 22:43:01'),
 (67, 6, '2023-01-16 22:43:01', '2023-01-16 22:43:01'),
-(68, 1, '2023-01-16 22:43:01', '2023-01-16 22:43:01'),
 (69, 3, '2023-01-16 22:43:01', '2023-01-16 22:43:01'),
-(70, 1, '2023-01-16 22:43:01', '2023-01-16 22:43:01'),
 (71, 2, '2023-01-16 22:43:01', '2023-01-16 22:43:01'),
 (72, 5, '2023-01-16 22:43:01', '2023-01-16 22:43:01'),
 (73, 4, '2023-01-16 22:43:01', '2023-01-16 22:43:01'),
-(74, 1, '2023-01-16 22:43:01', '2023-01-16 22:43:01'),
 (75, 4, '2023-01-16 22:43:01', '2023-01-16 22:43:01'),
 (76, 3, '2023-01-16 22:43:01', '2023-01-16 22:43:01'),
-(77, 1, '2023-01-16 22:43:01', '2023-01-16 22:43:01'),
 (78, 6, '2023-01-16 22:43:01', '2023-01-16 22:43:01'),
 (79, 5, '2023-01-16 22:43:01', '2023-01-16 22:43:01'),
 (80, 2, '2023-01-16 22:43:01', '2023-01-16 22:43:01'),
 (81, 5, '2023-01-16 22:43:01', '2023-01-16 22:43:01'),
-(82, 1, '2023-01-16 22:43:01', '2023-01-16 22:43:01'),
 (83, 5, '2023-01-16 22:43:01', '2023-01-16 22:43:01'),
 (84, 4, '2023-01-16 22:43:01', '2023-01-16 22:43:01'),
 (85, 6, '2023-01-16 22:43:01', '2023-01-16 22:43:01'),
@@ -332,7 +319,9 @@ INSERT INTO `jobs` (`id`, `name`, `staff_id`, `task_id`, `date_created`, `date_u
 (15, 'Nam dui. Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius. Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nis', 775, 3, '0000-00-00 00:00:00', '2023-01-18 20:18:58'),
 (16, 'In hac habitasse platea dictumst. Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat. Curabitur gravida nisi at nibh.', 775, 3, '0000-00-00 00:00:00', '2023-01-18 20:19:03'),
 (19, 'Computer Engineering Exam', 775, 1, '2023-01-17 17:14:59', '2023-01-18 20:19:07'),
-(20, 'Super Task', 1008, 5, '2023-01-19 15:02:43', '2023-01-19 15:02:43');
+(20, 'Super Task', 1008, 5, '2023-01-19 15:02:43', '2023-01-19 15:02:43'),
+(21, 'Job For Testing', 1, 1, '2023-01-20 11:49:33', '2023-01-20 11:49:33'),
+(22, 'Empty Job Test', 1, 1, '2023-01-20 11:53:18', '2023-01-20 11:53:18');
 
 -- --------------------------------------------------------
 
@@ -4358,7 +4347,16 @@ INSERT INTO `job_entries` (`id`, `job_id`, `student_id`, `response`, `date_creat
 (3999, 6, 18, 1, '2023-01-18 17:36:05', '2022-12-30 13:21:15'),
 (4000, 6, 21, 0, '2023-01-18 17:36:05', '2023-01-08 17:34:05'),
 (4001, 1, 1, 1, '2023-01-20 11:23:44', '2023-01-20 11:23:44'),
-(4002, 1, 1, 1, '2023-01-20 11:24:07', '2023-01-20 11:24:07');
+(4002, 1, 1, 1, '2023-01-20 11:24:07', '2023-01-20 11:24:07'),
+(4007, 4, 1, 1, '2023-01-20 11:33:00', '2023-01-20 11:33:00'),
+(4008, 5, 1, 1, '2023-01-20 11:33:10', '2023-01-20 11:33:10'),
+(4009, 5, 1, 1, '2023-01-20 11:33:19', '2023-01-20 11:33:19'),
+(4010, 5, 1, 1, '2023-01-20 11:33:55', '2023-01-20 11:33:55'),
+(4011, 5, 1, 1, '2023-01-20 11:34:10', '2023-01-20 11:34:10'),
+(4012, 21, 1, 1, '2023-01-20 11:50:00', '2023-01-20 11:50:00'),
+(4013, 21, 1, 0, '2023-01-20 11:51:18', '2023-01-20 11:51:18'),
+(4014, 22, 1, 1, '2023-01-20 12:00:08', '2023-01-20 12:00:08'),
+(4015, 22, 1, 0, '2023-01-20 13:03:45', '2023-01-20 13:03:45');
 
 -- --------------------------------------------------------
 
@@ -4371,8 +4369,8 @@ CREATE TABLE `machines` (
   `machine_id` varchar(100) NOT NULL,
   `mark` varchar(100) NOT NULL,
   `name` varchar(200) NOT NULL,
-  `owner_id` int(11) NOT NULL,
-  `active_job_id` int(11) NOT NULL,
+  `owner_id` int(11) NOT NULL DEFAULT 1,
+  `active_job_id` int(11) NOT NULL DEFAULT 1,
   `date_created` datetime NOT NULL DEFAULT current_timestamp(),
   `date_updated` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -4382,7 +4380,8 @@ CREATE TABLE `machines` (
 --
 
 INSERT INTO `machines` (`id`, `machine_id`, `mark`, `name`, `owner_id`, `active_job_id`, `date_created`, `date_updated`) VALUES
-(1, '23jan1690515', 'Mark #1', 'The Prototype', 1008, 1, '2023-01-16 09:11:38', '2023-01-20 11:20:17');
+(1, '23jan1690515', 'Mark #1', 'The Prototype', 1002, 6, '2023-01-16 09:11:38', '2023-02-08 13:36:56'),
+(3, '23jan29170810', 'Mark #2', 'Shaqataq', 1008, 20, '2023-01-29 17:10:10', '2023-01-29 17:46:10');
 
 -- --------------------------------------------------------
 
@@ -4402,7 +4401,7 @@ CREATE TABLE `school_fees` (
 --
 
 INSERT INTO `school_fees` (`id`, `student_id`, `date_created`, `date_updated`) VALUES
-(1, 1, '2023-01-20 11:23:22', '2023-01-20 11:23:22');
+(1, 1, '2023-01-20 11:23:22', '2023-01-20 13:25:52');
 
 -- --------------------------------------------------------
 
@@ -4433,7 +4432,7 @@ CREATE TABLE `staff` (
 
 INSERT INTO `staff` (`id`, `first_name`, `last_name`, `gender`, `email`, `phone`, `department_id`, `course_handling`, `password`, `title`, `staff_id_number`, `date_created`, `date_updated`, `deleted`) VALUES
 (1, 'Tester', 'Kahn', 'Male', 'testerzero@mail.com', '-', 1, '[{\"course_id\":1,\"course_credits\":1,\"course_level\":3,\"year_taken\":2019},{\"course_id\":5,\"course_credits\":2,\"course_level\":1,\"year_taken\":2019},{\"course_id\":\"11\"}]', '356a192b7913b04c54574d18c28d46e6395428ab', 'Shao kahn', '35434543543', '2022-10-17', '2022-12-24 04:22:26', 0),
-(752, 'Leola', 'Salzburger', 'Female', 'lsalzburgerkv@vinaora.com', '-', 3, '[     {         \"course_id\": 1,         \"course_credits\": 1,         \"course_level\": 3,         \"year_taken\": 2019     },     {         \"course_id\": 5,         \"course_credits\": 2,         \"course_level\": 1,         \"year_taken\": 2019     },     {         \"course_id\": 6,         \"course_credits\": 1,         \"course_level\": 5,         \"year_taken\": 2018     },     {         \"course_id\": 9,         \"course_credits\": 1,         \"course_level\": 3,         \"year_taken\": 2022     },     {         \"course_id\": 4,         \"course_credits\": 2,         \"course_level\": 1,         \"year_taken\": 2020     },     {         \"course_id\": 2,         \"course_credits\": 1,         \"course_level\": 2,         \"year_taken\": 2021     },     {         \"course_id\": 3,         \"course_credits\": 2,         \"course_level\": 2,         \"year_taken\": 2021     },     {         \"course_id\": 8,         \"course_credits\": 2,         \"course_level\": 3,         \"year_taken\": 2019     },     {         \"course_id\": 7,         \"course_credits\": 1,         \"course_level\": 4,         \"year_taken\": 2018     } ]', 'BtBfeR7h', 'Operator', '-', '2022-10-17', '2022-10-29 12:04:41', 0),
+(752, 'Leola', 'Salzburger', 'Female', 'salzburg@mail.com', '-', 3, '[     {         \"course_id\": 1,         \"course_credits\": 1,         \"course_level\": 3,         \"year_taken\": 2019     },     {         \"course_id\": 5,         \"course_credits\": 2,         \"course_level\": 1,         \"year_taken\": 2019     },     {         \"course_id\": 6,         \"course_credits\": 1,         \"course_level\": 5,         \"year_taken\": 2018     },     {         \"course_id\": 9,         \"course_credits\": 1,         \"course_level\": 3,         \"year_taken\": 2022     },     {         \"course_id\": 4,         \"course_credits\": 2,         \"course_level\": 1,         \"year_taken\": 2020     },     {         \"course_id\": 2,         \"course_credits\": 1,         \"course_level\": 2,         \"year_taken\": 2021     },     {         \"course_id\": 3,         \"course_credits\": 2,         \"course_level\": 2,         \"year_taken\": 2021     },     {         \"course_id\": 8,         \"course_credits\": 2,         \"course_level\": 3,         \"year_taken\": 2019     },     {         \"course_id\": 7,         \"course_credits\": 1,         \"course_level\": 4,         \"year_taken\": 2018     } ]', '356a192b7913b04c54574d18c28d46e6395428ab', 'Operator', '-', '2022-10-17', '2023-01-28 15:05:51', 0),
 (753, 'Romy', 'Monte', 'Female', 'rmontekw@unicef.org', '-', 7, '[     {         \"course_id\": 1,         \"course_credits\": 1,         \"course_level\": 3,         \"year_taken\": 2019     },     {         \"course_id\": 5,         \"course_credits\": 2,         \"course_level\": 1,         \"year_taken\": 2019     },     {         \"course_id\": 6,         \"course_credits\": 1,         \"course_level\": 5,         \"year_taken\": 2018     },     {         \"course_id\": 9,         \"course_credits\": 1,         \"course_level\": 3,         \"year_taken\": 2022     },     {         \"course_id\": 4,         \"course_credits\": 2,         \"course_level\": 1,         \"year_taken\": 2020     },     {         \"course_id\": 2,         \"course_credits\": 1,         \"course_level\": 2,         \"year_taken\": 2021     },     {         \"course_id\": 3,         \"course_credits\": 2,         \"course_level\": 2,         \"year_taken\": 2021     },     {         \"course_id\": 8,         \"course_credits\": 2,         \"course_level\": 3,         \"year_taken\": 2019     },     {         \"course_id\": 7,         \"course_credits\": 1,         \"course_level\": 4,         \"year_taken\": 2018     } ]', '3tul2UNrb', 'VP Sales', '-', '2022-10-17', '2022-10-29 12:04:45', 0),
 (754, 'Yalonda', 'Lorden', 'Female', 'ylordenkx@weebly.com', '-', 1, '[     {         \"course_id\": 1,         \"course_credits\": 1,         \"course_level\": 3,         \"year_taken\": 2019     },     {         \"course_id\": 5,         \"course_credits\": 2,         \"course_level\": 1,         \"year_taken\": 2019     },     {         \"course_id\": 6,         \"course_credits\": 1,         \"course_level\": 5,         \"year_taken\": 2018     },     {         \"course_id\": 9,         \"course_credits\": 1,         \"course_level\": 3,         \"year_taken\": 2022     },     {         \"course_id\": 4,         \"course_credits\": 2,         \"course_level\": 1,         \"year_taken\": 2020     },     {         \"course_id\": 2,         \"course_credits\": 1,         \"course_level\": 2,         \"year_taken\": 2021     },     {         \"course_id\": 3,         \"course_credits\": 2,         \"course_level\": 2,         \"year_taken\": 2021     },     {         \"course_id\": 8,         \"course_credits\": 2,         \"course_level\": 3,         \"year_taken\": 2019     },     {         \"course_id\": 7,         \"course_credits\": 1,         \"course_level\": 4,         \"year_taken\": 2018     } ]', 'XGDo29PzuH7', 'Biostatistician II', '-', '2022-10-17', '2022-10-29 12:04:50', 0),
 (755, 'Elnar', 'Darragh', 'Male', 'edarraghky@cnn.com', '-', 2, '[     {         \"course_id\": 1,         \"course_credits\": 1,         \"course_level\": 3,         \"year_taken\": 2019     },     {         \"course_id\": 5,         \"course_credits\": 2,         \"course_level\": 1,         \"year_taken\": 2019     },     {         \"course_id\": 6,         \"course_credits\": 1,         \"course_level\": 5,         \"year_taken\": 2018     },     {         \"course_id\": 9,         \"course_credits\": 1,         \"course_level\": 3,         \"year_taken\": 2022     },     {         \"course_id\": 4,         \"course_credits\": 2,         \"course_level\": 1,         \"year_taken\": 2020     },     {         \"course_id\": 2,         \"course_credits\": 1,         \"course_level\": 2,         \"year_taken\": 2021     },     {         \"course_id\": 3,         \"course_credits\": 2,         \"course_level\": 2,         \"year_taken\": 2021     },     {         \"course_id\": 8,         \"course_credits\": 2,         \"course_level\": 3,         \"year_taken\": 2019     },     {         \"course_id\": 7,         \"course_credits\": 1,         \"course_level\": 4,         \"year_taken\": 2018     } ]', 'zIs7LdqEAs', 'Environmental Specialist', '-', '2022-10-17', '2022-10-29 12:04:52', 0),
@@ -4713,7 +4712,7 @@ INSERT INTO `staff` (`id`, `first_name`, `last_name`, `gender`, `email`, `phone`
 (1002, 'Test', 'Test', 'MALE', 'TEST@MAIL.COM', '-', 10, '[]', '356a192b7913b04c54574d18c28d46e6395428ab', NULL, '-', '2022-12-24', '2022-12-24 04:49:31', 0),
 (1006, 'Jewel', 'Uguru', 'MALE', 'JU@MAIL.COM', '-', 1, '[]', '356a192b7913b04c54574d18c28d46e6395428ab', NULL, '-', '2023-01-09', '2023-01-09 10:45:18', 0),
 (1007, 'Jewel', 'Wahala', 'FEMALE', 'JWAHA@MAIL.COM', '-', 10, '[]', '356a192b7913b04c54574d18c28d46e6395428ab', NULL, '-', '2023-01-09', '2023-01-09 11:23:18', 0),
-(1008, 'null', 'void', 'Male', 'nullvoid@mail.com', 'xxxxxxxxxxxxxxxxxx', 1, '[]', '356a192b7913b04c54574d18c28d46e6395428ab', NULL, '-', '2023-01-19', '2023-01-19 12:56:52', 0);
+(1008, 'null', 'void', 'Male', 'superstaff@mail.com', 'xxxxxxxxxxxxxxxxxx', 1, '[]', '356a192b7913b04c54574d18c28d46e6395428ab', NULL, '-', '2023-01-19', '2023-01-29 17:43:22', 0);
 
 -- --------------------------------------------------------
 
@@ -4733,7 +4732,7 @@ CREATE TABLE `students` (
   `department_id` int(11) NOT NULL,
   `set_year` varchar(50) NOT NULL DEFAULT '2022/2023',
   `courses_taken` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '\'[]\'',
-  `password` text NOT NULL,
+  `password` text NOT NULL DEFAULT '356a192b7913b04c54574d18c28d46e6395428ab',
   `date_created` date NOT NULL DEFAULT current_timestamp(),
   `date_updated` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `deleted` tinyint(1) NOT NULL DEFAULT 0
@@ -4998,7 +4997,8 @@ INSERT INTO `students` (`id`, `first_name`, `last_name`, `gender`, `email`, `reg
 (252, 'Newton', 'Leftly', 'Male', 'nleftlybe@phoca.cz', '2517819440', '362-965-4375', NULL, 3, '2017/2018', '[[],{\"course_id\":\"9\",\"course_credits\":null,\"course_set\":\"2018/2019\"},{\"course_id\":\"1\",\"course_credits\":\"3\",\"course_set\":\"2017/2018\"}]', '5ROxwZ', '2022-10-19', '2022-11-08 10:40:29', 0),
 (1008, 'Michael', 'Orji', 'MALE', 'ORJIMICHAEL4886@GMAIL.COM', '20170301803111', '08148863871', NULL, 1, '2017/2018', '[{\"course_id\":\"5\",\"course_credits\":\"3\",\"course_set\":\"2022/2023\"}]', '5173e941960d0a3fa26c06dc9d550adb5f16dcf8', '2022-11-27', '2023-01-13 14:34:31', 0),
 (1009, 'Test', 'Test', 'MALE', 'TESTUSER@MAIL.COM', '211', '123', NULL, 1, '2022/2023', '[{\"course_id\":\"1\",\"course_credits\":\"3\",\"course_set\":\"2023/2024\"},{\"course_id\":\"5\",\"course_credits\":\"3\",\"course_set\":\"2019/2020\",\"result_id\":\"2086\"}]', '356a192b7913b04c54574d18c28d46e6395428ab', '2023-01-13', '2023-01-13 14:00:50', 0),
-(1010, 'Test2', 'Test2', 'MALE', 'TESTER2@MAIL.COM', '212', '0812222222', NULL, 1, '2022/2023', '[{\"course_id\":\"5\",\"course_credits\":\"3\",\"course_set\":\"2022/2023\"},{\"course_id\":\"7\",\"course_credits\":\"3\",\"course_set\":\"2017/2018\"}]', '356a192b7913b04c54574d18c28d46e6395428ab', '2023-01-13', '2024-01-01 15:22:04', 0);
+(1010, 'Test2', 'Test2', 'MALE', 'TESTER2@MAIL.COM', '212', '0812222222', NULL, 1, '2022/2023', '[{\"course_id\":\"5\",\"course_credits\":\"3\",\"course_set\":\"2022/2023\"},{\"course_id\":\"7\",\"course_credits\":\"3\",\"course_set\":\"2017/2018\"}]', '356a192b7913b04c54574d18c28d46e6395428ab', '2023-01-13', '2024-01-01 15:22:04', 0),
+(1011, 'Test', 'Test34', 'MALE', 'TESTSTUDENT@MAIL.COM', 'TESTREG', '', NULL, 10, '2022/2023', '\'[]\'', '356a192b7913b04c54574d18c28d46e6395428ab', '2023-01-29', '2023-02-08 13:22:44', 0);
 
 -- --------------------------------------------------------
 
@@ -5195,19 +5195,19 @@ ALTER TABLE `faculty_fees`
 -- AUTO_INCREMENT for table `jobs`
 --
 ALTER TABLE `jobs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `job_entries`
 --
 ALTER TABLE `job_entries`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4003;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4016;
 
 --
 -- AUTO_INCREMENT for table `machines`
 --
 ALTER TABLE `machines`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `school_fees`
@@ -5219,13 +5219,13 @@ ALTER TABLE `school_fees`
 -- AUTO_INCREMENT for table `staff`
 --
 ALTER TABLE `staff`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1010;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1011;
 
 --
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1011;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1012;
 
 --
 -- AUTO_INCREMENT for table `super_admins`
